@@ -1,0 +1,22 @@
+<book>
+    <page>
+        <title>Titel 1</title>
+        <photo>images/path1.jpg</photo>
+        <paragraph>Lorum ipsum</paragraph>
+    </page>
+
+    <page>
+        <photo>images/path2.jpg</photo>
+        <paragraph>Lorum ipsum 2</paragraph>
+    </page>
+
+    <page>
+        <title></title>
+        <photo></photo>
+        <paragraph></paragraph>
+
+        <title></title>
+        <photo></photo>
+        <paragraph></paragraph>
+    </page>
+</book>
