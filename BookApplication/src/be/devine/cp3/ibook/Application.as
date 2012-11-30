@@ -7,6 +7,7 @@
  */
 package be.devine.cp3.ibook {
 import be.devine.cp3.ibook.model.AppModel;
+import be.devine.cp3.ibook.vo.TitelVO;
 import be.devine.cp3.ibook.xmlParser.XMLParser;
 
 import flash.display.Sprite;
@@ -31,7 +32,30 @@ public class Application extends Sprite{
 
     private function xmlLoadedHandler(e:Event):void {
         loadedXML = _xmlParser.geladenXML;
-        trace(loadedXML);
+
+        var pagesArray:Array = new Array();
+
+        for each(var pageNode:XML in loadedXML.page){
+            /*trace(pageNode.title);*/
+            var titleArray:Array = new Array();
+            var paragraphArray:Array = new Array();
+            var imageArray:Array = new Array();
+
+            for each(var titleNode:XML in pageNode.title){
+                  trace("titel " + titleNode);
+
+            }
+
+            for each(var paragraphNode:XML in pageNode.paragraph){
+                trace("paragraaf " + paragraphNode);
+            }
+
+            for each(var imageNode:XML in pageNode.image){
+                trace("image " + imageNode);
+            }
+
+
+        }
     }
 }
 }
