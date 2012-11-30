@@ -22,7 +22,8 @@ public class XMLParser extends Sprite{
     public static const XML_LOADED:String = "xmlLoaded";
 
 
-    public function XMLParser(path) {
+    public function XMLParser(path:String) {
+
         _appModel = AppModel.getInstance();
         var xmlPath:String = path;
         _xmlLoader.load(new URLRequest(xmlPath));
@@ -31,8 +32,8 @@ public class XMLParser extends Sprite{
 
     private function completeHandler(e:Event):void {
         geladenXML = new XML(e.currentTarget.data);
-
         dispatchEvent(new Event(XML_LOADED));
+
     }
 }
 }

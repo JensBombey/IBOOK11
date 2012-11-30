@@ -1,0 +1,42 @@
+<book>
+    <page number="1">
+        <title x="" y="" fontSize="" font="" color="">A Game of Thrones</title>
+        <subTitle x="" y="" fontSize="" font="" color="">A Song of Ice and Fire: Book I</subTitle>
+    </page>
+
+    <page number="2">
+        <title x="" y="" fontSize="" font="" color="">Table of Contents</title>
+        <paragraph x="" y="" fontSize="" font="" color="">
+            Chapter 1: blablabla....................4
+        </paragraph>
+        <paragraph x="" y="" fontSize="" font="" color="">
+            Chapter 2: blablabla....................13
+        </paragraph>
+        <paragraph x="" y="" fontSize="" font="" color="">
+            Chapter 3: blablabla....................24
+        </paragraph>
+        <paragraph x="" y="" fontSize="" font="" color="">
+            Chapter 4: blablabla....................32
+        </paragraph>
+    </page>
+
+    <page number="3">
+        <photo x="" y="" width="" height="">images/path3.jpg</photo>
+    </page>
+
+    <page number="4">
+        <title x="" y="" fontSize="" font="" color="">Chapter 1: Blablabla</title>
+        <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+    </page>
+
+    <page number="5">
+        <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+    </page>
+
+    <page number="6">
+        <photo x="" y="" width="" height="">images/path3.jpg</photo>
+        <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+    </page>
+
+
+</book>

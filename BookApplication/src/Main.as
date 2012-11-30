@@ -1,16 +1,16 @@
 package {
 
-import be.devine.cp3.ibook.IBook;
+import be.devine.cp3.ibook.Application;
 
 import flash.display.Sprite;
 import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.text.TextField;
 
-public class BookApplication extends Sprite {
+public class Main extends Sprite {
     private var app:Sprite;
 
-    public function BookApplication() {
+    public function Main() {
 
         stage.align = StageAlign.TOP_LEFT;
         stage.scaleMode = StageScaleMode.NO_SCALE;
@@ -18,8 +18,10 @@ public class BookApplication extends Sprite {
         stage.nativeWindow.width = 800;
         stage.nativeWindow.height = 600;
 
-        app = new IBook();
+        app = new Application();
         addChild(app);
+
+
     }
 }
 }

@@ -8,12 +8,15 @@
 package be.devine.cp3.ibook.model {
 import be.devine.cp3.ibook.xmlParser.XMLParser;
 
+import flash.events.Event;
+
 import flash.events.EventDispatcher;
 
 public class AppModel extends EventDispatcher{
 
     private static var instance:AppModel;
-    private var _xmlParser:XMLParser;
+
+    public static const XMLCHANGED:String = "xmlChanged";
 
     //=====CONSTRUCTOR=====
     public function AppModel(e:Enforcer)
@@ -33,16 +36,9 @@ public class AppModel extends EventDispatcher{
     }
 
     //=====METHODS=====
-    public function load(path):void
-    {
-        _xmlParser = new XMLParser(path);
-        addEventListener(XMLParser.XML_LOADED, xmlLoadedHandler);
-    }
 
-    private function xmlLoadedHandler():void {
 
-    }
 
 }
 }
-internal class Enforcer{};
+internal class Enforcer{}
