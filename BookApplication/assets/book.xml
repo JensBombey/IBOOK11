@@ -11,12 +11,12 @@
     </page>
 
     <page>
-        <title></title>
-        <photo></photo>
-        <paragraph></paragraph>
+        <title>Titel 2</title>
+        <photo>images/path3.jpg</photo>
+        <paragraph>Lorum Ipsum 3</paragraph>
 
-        <title></title>
-        <photo></photo>
-        <paragraph></paragraph>
+        <title>Titel 3</title>
+        <photo>images/path4.jpg</photo>
+        <paragraph>Lorum Ipsum 4</paragraph>
     </page>
 </book>

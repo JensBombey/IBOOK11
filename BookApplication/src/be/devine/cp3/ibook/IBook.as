@@ -7,6 +7,7 @@
  */
 package be.devine.cp3.ibook {
 import be.devine.cp3.ibook.model.AppModel;
+import be.devine.cp3.ibook.xmlParser.XMLParser;
 
 import flash.display.Sprite;
 
@@ -16,7 +17,9 @@ public class IBook extends Sprite{
 
     public function IBook() {
 
-        appModel = new AppModel();
+        appModel = AppModel.getInstance();
+
+        appModel.load("assets/book.xml");
     }
 }
 }

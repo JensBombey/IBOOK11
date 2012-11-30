@@ -6,10 +6,43 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.ibook.model {
+import be.devine.cp3.ibook.xmlParser.XMLParser;
+
 import flash.events.EventDispatcher;
 
 public class AppModel extends EventDispatcher{
-    public function AppModel() {
+
+    private static var instance:AppModel;
+    private var _xmlParser:XMLParser;
+
+    //=====CONSTRUCTOR=====
+    public function AppModel(e:Enforcer)
+    {
+        if(e == null) {
+            throw new Error("AppModel is a singleton, use getInstance() instead");
+        }
+
     }
+
+    //=====APPMODEL IS A SINGLETON=====
+    public static function getInstance():AppModel {
+    if(instance == null) {
+        instance = new AppModel(new Enforcer());
+    }
+    return instance;
+    }
+
+    //=====METHODS=====
+    public function load(path):void
+    {
+        _xmlParser = new XMLParser(path);
+        addEventListener(XMLParser.XML_LOADED, xmlLoadedHandler);
+    }
+
+    private function xmlLoadedHandler():void {
+
+    }
+
 }
 }
+internal class Enforcer{};
