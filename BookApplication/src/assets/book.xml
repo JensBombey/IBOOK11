@@ -1,10 +1,13 @@
 <book>
     <page number="1">
+        <element type="titelSubtitle">
         <title x="" y="" fontSize="" font="" color="">A Game of Thrones</title>
         <subTitle x="" y="" fontSize="" font="" color="">A Song of Ice and Fire: Book I</subTitle>
+        </element>
     </page>
 
     <page number="2">
+        <element type="titleText">
         <title x="" y="" fontSize="" font="" color="">Table of Contents</title>
         <paragraph x="" y="" fontSize="" font="" color="">
             Chapter 1: blablabla....................4
@@ -18,24 +21,33 @@
         <paragraph x="" y="" fontSize="" font="" color="">
             Chapter 4: blablabla....................32
         </paragraph>
+        </element>
     </page>
 
     <page number="3">
+        <element type="image">
         <photo x="" y="" width="" height="">images/path3.jpg</photo>
+        </element>
     </page>
 
     <page number="4">
+        <element type="titleText">
         <title x="" y="" fontSize="" font="" color="">Chapter 1: Blablabla</title>
         <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+        </element>
     </page>
 
     <page number="5">
+        <element type="text">
         <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+        </element>
     </page>
 
     <page number="6">
+        <element type="imageText">
         <photo x="" y="" width="" height="">images/path3.jpg</photo>
         <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+        </element>
     </page>
 
 

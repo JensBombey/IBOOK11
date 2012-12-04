@@ -7,8 +7,13 @@ import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.text.TextField;
 
+import starling.core.Starling;
+
 public class Main extends Sprite {
     private var app:Sprite;
+    private var starling:Starling;
+    private var regular:Application;
+    private var useStarling:Boolean = true;
 
     public function Main() {
 
@@ -18,9 +23,13 @@ public class Main extends Sprite {
         stage.nativeWindow.width = 800;
         stage.nativeWindow.height = 600;
 
-        app = new Application();
-        addChild(app);
-
+        if(useStarling){
+            starling = new Starling(Application, stage);
+            starling.start();
+        }else{
+            regular = new Application();
+            addChild(regular)
+        }
 
     }
 }

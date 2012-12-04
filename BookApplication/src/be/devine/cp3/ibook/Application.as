@@ -13,11 +13,14 @@ import be.devine.cp3.ibook.xmlParser.XMLParser;
 import flash.display.Sprite;
 import flash.events.Event;
 
+import starling.core.Starling;
+
 public class Application extends Sprite{
 
     private var appModel:AppModel;
     private var _xmlParser:XMLParser;
     public var loadedXML:XML;
+    private var starling:Starling;
 
     public function Application() {
 
@@ -26,7 +29,6 @@ public class Application extends Sprite{
         _xmlParser = new XMLParser("assets/book.xml");
 
         _xmlParser.addEventListener(XMLParser.XML_LOADED, xmlLoadedHandler);
-
 
     }
 
