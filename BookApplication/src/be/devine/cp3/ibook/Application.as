@@ -7,57 +7,47 @@
  */
 package be.devine.cp3.ibook {
 import be.devine.cp3.ibook.model.AppModel;
-import be.devine.cp3.ibook.vo.TitelVO;
+import be.devine.cp3.ibook.view.Page;
+import be.devine.cp3.ibook.vo.PageVO;
 import be.devine.cp3.ibook.xmlParser.XMLParser;
 
 import flash.display.Sprite;
+import flash.display.StageAlign;
+import flash.display.StageScaleMode;
 import flash.events.Event;
 
 import starling.core.Starling;
+import starling.display.Sprite;
 
-public class Application extends Sprite{
+public class Application extends starling.display.Sprite{
+
+    private var starling:Starling;
 
     private var appModel:AppModel;
-    private var _xmlParser:XMLParser;
-    public var loadedXML:XML;
-    private var starling:Starling;
+    private var pageContainer:starling.display.Sprite;
+
 
     public function Application() {
 
         appModel = AppModel.getInstance();
 
-        _xmlParser = new XMLParser("assets/book.xml");
-
-        _xmlParser.addEventListener(XMLParser.XML_LOADED, xmlLoadedHandler);
+        appModel.addEventListener(AppModel.XML_CHANGED, pagesChangedHandler);
 
     }
 
-    private function xmlLoadedHandler(e:Event):void {
-        loadedXML = _xmlParser.geladenXML;
-
-        var pagesArray:Array = new Array();
-
-        for each(var pageNode:XML in loadedXML.page){
-            /*trace(pageNode.title);*/
-            var titleArray:Array = new Array();
-            var paragraphArray:Array = new Array();
-            var imageArray:Array = new Array();
-
-            for each(var titleNode:XML in pageNode.title){
-                  trace("titel " + titleNode);
-
-            }
-
-            for each(var paragraphNode:XML in pageNode.paragraph){
-                trace("paragraaf " + paragraphNode);
-            }
-
-            for each(var imageNode:XML in pageNode.image){
-                trace("image " + imageNode);
-            }
-
-
+    private function pagesChangedHandler(event:Event):void {
+        //trace(appModel.pages);
+        //create page views
+        var xPos:uint = 0;
+        for each(var pageVO:PageVO in appModel.pages) {
+            var page:Page = new Page(pageVO);
+            page.x = xPos;
+            //TODO:Pagina's in de container plaatsen en showen
+            //pageContainer.addChild(page);
+            xPos += 600;
         }
     }
+
+
 }
 }

@@ -17,6 +17,7 @@ public class Main extends Sprite {
 
     public function Main() {
 
+
         stage.align = StageAlign.TOP_LEFT;
         stage.scaleMode = StageScaleMode.NO_SCALE;
         stage.nativeWindow.visible = true;
@@ -27,8 +28,9 @@ public class Main extends Sprite {
             starling = new Starling(Application, stage);
             starling.start();
         }else{
+            /*
             regular = new Application();
-            addChild(regular)
+            addChild(regular);*/
         }
 
     }

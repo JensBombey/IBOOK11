@@ -1,8 +1,8 @@
 <book>
     <page number="1">
-        <element type="titelSubtitle">
-        <title x="" y="" fontSize="" font="" color="">A Game of Thrones</title>
-        <subTitle x="" y="" fontSize="" font="" color="">A Song of Ice and Fire: Book I</subTitle>
+        <element type="titleSubtitle">
+        <title x="" y="" fontSize="15" font="Helvetica" color="">A Game of Thrones</title>
+        <subTitle x="" y="" fontSize="13" font="Helvetica" color="">A Song of Ice and Fire: Book I</subTitle>
         </element>
     </page>
 

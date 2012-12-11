@@ -6,12 +6,15 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.ibook.vo {
-public class TitleSubtitleVO {
+public class TitleSubtitleVO extends ElementVO{
 
-    public var titleVO:String;
-    public var subtitleVO:uint;
+    public var title:String;
+    public var subtitle:String;
+
 
     public function TitleSubtitleVO(elementXML:XML) {
+        title = elementXML.title;
+        subtitle = elementXML.subTitle;
 
 
     }

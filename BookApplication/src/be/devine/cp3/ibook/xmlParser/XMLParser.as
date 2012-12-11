@@ -13,9 +13,9 @@ import flash.events.Event;
 import flash.net.URLLoader;
 import flash.net.URLRequest;
 
-public class XMLParser extends Sprite{
+public class XMLParser extends URLLoader{
 
-    private var _xmlLoader:URLLoader = new URLLoader();
+    private var _xmlLoader:URLLoader;
     private var _appModel:AppModel;
     public var geladenXML:XML;
 
@@ -24,8 +24,9 @@ public class XMLParser extends Sprite{
 
     public function XMLParser(path:String) {
 
-        _appModel = AppModel.getInstance();
+        //_appModel = AppModel.getInstance();
         var xmlPath:String = path;
+        _xmlLoader = new URLLoader();
         _xmlLoader.load(new URLRequest(xmlPath));
         _xmlLoader.addEventListener(Event.COMPLETE, completeHandler);
     }
