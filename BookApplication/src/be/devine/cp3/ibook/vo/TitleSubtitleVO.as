@@ -9,11 +9,13 @@ package be.devine.cp3.ibook.vo {
 public class TitleSubtitleVO extends ElementVO{
 
     public var title:String;
+    public var fontSize:uint;
     public var subtitle:String;
 
 
     public function TitleSubtitleVO(elementXML:XML) {
         title = elementXML.title;
+        fontSize = elementXML.title.@fontSize;
         subtitle = elementXML.subTitle;
 
 

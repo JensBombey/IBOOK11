@@ -9,6 +9,7 @@ package be.devine.cp3.ibook.view {
 import be.devine.cp3.ibook.factory.vo.ElementViewFactory;
 import be.devine.cp3.ibook.model.AppModel;
 import be.devine.cp3.ibook.view.Elements.Element;
+import be.devine.cp3.ibook.view.Elements.ImageElement;
 import be.devine.cp3.ibook.view.Elements.TitleSubtitleElement;
 import be.devine.cp3.ibook.view.Elements.TitleTextElement;
 import be.devine.cp3.ibook.vo.ElementVO;
@@ -43,6 +44,11 @@ public class Page extends Sprite{
                     element.x = 50;
                     element.y = 52;
                     trace("[PAGE] het is een titel en tekst element");
+                }
+                if(element is ImageElement){
+                    element.x = 75;
+                    element.y = 52;
+                    trace("[PAGE] het is een image element");
                 }
                 addChild(element);
             }

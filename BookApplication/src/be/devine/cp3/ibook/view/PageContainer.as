@@ -9,11 +9,10 @@ package be.devine.cp3.ibook.view {
 import be.devine.cp3.ibook.model.AppModel;
 import be.devine.cp3.ibook.vo.PageVO;
 
-import flash.events.Event;
-
 import starling.display.Quad;
 
 import starling.display.Sprite;
+import starling.events.Event;
 
 public class PageContainer extends Sprite{
 
@@ -31,7 +30,17 @@ public class PageContainer extends Sprite{
         appmodel.addEventListener(AppModel.PAGE_CHANGED, pageChangedHandler);
         appmodel.addEventListener(AppModel.PAGE_INDEX_CHANGED, pageIndexChangedHandler);
         currentPageIndex = appmodel.pageIndex = 0;
+        container = new Sprite();
+
+        bg = new Quad(964,624,0xffffff);
+        bg.x = appmodel.appWidth/2 - bg.width/2;
+        bg.y = appmodel.appHeight/2 - bg.height/2;
+        container.addChild(bg);
+
+        menu = new Menu();
+        container.addChild(menu);
         showPages();
+        addChild(container);
     }
 
     // METHODS
@@ -40,28 +49,10 @@ public class PageContainer extends Sprite{
         this.removeChildren();
         this.dispose();
 
-        container = new Sprite();
-
-        bg = new Quad(964,624,0xffffff);
-        bg.x = appmodel.appWidth/2 - bg.width/2;
-        bg.y = appmodel.appHeight/2 - bg.height/2;
-        container.addChild(bg);
-
         pages = appmodel.pages;
         currentPage = new Page(pages[currentPageIndex]);
         container.addChild(currentPage);
 
-        menu = new Menu();
-        container.addChild(menu);
-
-        addChild(container);
-    }
-
-    private function pageChangedHandler(e:Event):void{
-        // telkens als de pagina verandert de showPages functie aanroepen --> verwijdert de huidige pagina en voegt de nieuwe toe adhv currentPageIndex
-/*
-        showPages();
-*/
     }
 
     private function pageIndexChangedHandler(e:Event):void{

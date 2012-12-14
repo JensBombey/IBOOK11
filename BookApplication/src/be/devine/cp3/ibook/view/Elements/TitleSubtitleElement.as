@@ -18,7 +18,12 @@ public class TitleSubtitleElement extends Element {
     public function TitleSubtitleElement(titleSubtitleVo:TitleSubtitleVO) {
         super(titleSubtitleVo);
 
-        var titel:TextField = new TextField(600,80,titleSubtitleVo.title,Style.FONT,60,0x656565,true);
+/*
+        var fontSize:String = titleSubtitleVo.title.@fontSize;
+*/
+        trace(titleSubtitleVo.fontSize);
+
+        var titel:TextField = new TextField(600,80,titleSubtitleVo.title,Style.FONT,titleSubtitleVo.fontSize,0x656565,true);
         addChild(titel);
 
         var subtitel:TextField = new TextField(200,40,titleSubtitleVo.subtitle,Style.FONT,14,0xe16565,true);
