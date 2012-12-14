@@ -10,6 +10,7 @@ package be.devine.cp3.ibook.vo {
 public class PageVO {
 
     public var element:Vector.<ElementVO>;
+    public var pageNumber:uint = 0;
 
     public function PageVO() {
         element = new Vector.<ElementVO>();

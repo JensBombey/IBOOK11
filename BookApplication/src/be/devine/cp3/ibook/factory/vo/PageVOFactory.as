@@ -9,14 +9,15 @@ package be.devine.cp3.ibook.factory.vo {
 import be.devine.cp3.ibook.vo.PageVO;
 
 public class PageVOFactory {
-    public static function createPageVOFromXML(pageXML:XML):PageVO
+    public static function createPageVOFromXML(pageXML:XML, pageNumber:uint):PageVO
     {
         var pageVO:PageVO = new PageVO();
         for each(var elementXML:XML in pageXML.element){
             pageVO.element.push(ElementVOFactory.createFromXML(elementXML));
-
+            pageVO.pageNumber = pageNumber;
         }
-        trace("test:" + pageVO.element);
+        trace("[PAGEVO FACTORY] paginanummer: " + pageVO.pageNumber);
+        trace("[PAGEVO FACTORY] test:" + pageVO.element);
         return pageVO;
     }
 }

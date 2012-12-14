@@ -1,7 +1,7 @@
 <book>
     <page number="1">
         <element type="titleSubtitle">
-        <title x="" y="" fontSize="15" font="Helvetica" color="">A Game of Thrones</title>
+        <title x="" y="" fontSize="60" font="Helvetica" color="0x656565">A GAME OF THRONES</title>
         <subTitle x="" y="" fontSize="13" font="Helvetica" color="">A Song of Ice and Fire: Book I</subTitle>
         </element>
     </page>
@@ -11,14 +11,8 @@
         <title x="" y="" fontSize="" font="" color="">Table of Contents</title>
         <paragraph x="" y="" fontSize="" font="" color="">
             Chapter 1: blablabla....................4
-        </paragraph>
-        <paragraph x="" y="" fontSize="" font="" color="">
             Chapter 2: blablabla....................13
-        </paragraph>
-        <paragraph x="" y="" fontSize="" font="" color="">
             Chapter 3: blablabla....................24
-        </paragraph>
-        <paragraph x="" y="" fontSize="" font="" color="">
             Chapter 4: blablabla....................32
         </paragraph>
         </element>

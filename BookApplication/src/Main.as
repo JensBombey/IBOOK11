@@ -1,10 +1,14 @@
 package {
 
 import be.devine.cp3.ibook.Application;
+import be.devine.cp3.ibook.model.AppModel;
+
+import flash.display.Screen;
 
 import flash.display.Sprite;
 import flash.display.StageAlign;
 import flash.display.StageScaleMode;
+import flash.geom.Rectangle;
 import flash.text.TextField;
 
 import starling.core.Starling;
@@ -21,11 +25,21 @@ public class Main extends Sprite {
         stage.align = StageAlign.TOP_LEFT;
         stage.scaleMode = StageScaleMode.NO_SCALE;
         stage.nativeWindow.visible = true;
-        stage.nativeWindow.width = 800;
-        stage.nativeWindow.height = 600;
+        stage.nativeWindow.width = 1024;
+        stage.nativeWindow.height = 768;
+
+        stage.nativeWindow.bounds = new Rectangle(
+                (Screen.mainScreen.bounds.width - stage.nativeWindow.width) *.5,
+                (Screen.mainScreen.bounds.height - stage.nativeWindow.height) *.5,
+                stage.nativeWindow.width,
+                stage.nativeWindow.height
+        );
 
         if(useStarling){
             starling = new Starling(Application, stage);
+            AppModel.getInstance();
+            AppModel.getInstance().appWidth = stage.stageWidth;
+            AppModel.getInstance().appHeight = stage.stageHeight;
             starling.start();
         }else{
             /*

@@ -20,10 +20,18 @@ import flash.net.URLRequest;
 public class AppModel extends EventDispatcher{
 
     private static var instance:AppModel;
-    public var loadedXML:XML;
+/*    public var loadedXML:XML;
     private var _xmlParser:XMLParser;
     public static const XML_CHANGED:String = "xmlChanged";
+    private var _pages:Vector.<PageVO>;*/
+
+    public static const PAGE_CHANGED:String = "pageChanged";
+    public static const PAGE_INDEX_CHANGED:String = "pageIndexChanged";
+
     private var _pages:Vector.<PageVO>;
+    private var _appWidth:Number;
+    private var _appHeight:Number;
+    private var _pageIndex:uint;
 
 
     //=====CONSTRUCTOR=====
@@ -35,8 +43,8 @@ public class AppModel extends EventDispatcher{
 
 
 
-
-        this.load("assets/book.xml");
+/*
+        this.load("assets/book.xml");*/
     }
 
 
@@ -49,37 +57,58 @@ public class AppModel extends EventDispatcher{
     }
 
     //=====METHODS=====
-    public function load(path:String):void{
-        _xmlParser = new XMLParser(path);
-        _xmlParser.addEventListener(XMLParser.XML_LOADED, xmlLoadedHandler);
-    }
-
-    private function xmlLoadedHandler(e:Event):void {
-        loadedXML = _xmlParser.geladenXML;
-
-        dispatchEvent(new Event(XML_CHANGED));
-        var contentXML:XML = new XML(e.target.data);
-        var pages:Vector.<PageVO> = new Vector.<PageVO>();
-        var pageFactory = new PageVOFactory();
-        for each(var pageXML:XML in loadedXML.page) {
-            pages.push(PageVOFactory.createPageVOFromXML(pageXML));
-        }
-        this.pages = pages;
-    }
 
 
+
+    //=====GETTERS & SETTERS=====
     public function get pages():Vector.<PageVO> {
         return _pages;
     }
 
     public function set pages(value:Vector.<PageVO>):void {
-        if(_pages != value) {
+        if(_pages != value){
             _pages = value;
-            dispatchEvent(new Event(XML_CHANGED));
+            trace("[APPMODEL_PAGES_SETTER] pages array " + this.pages[pageIndex].element);
+            dispatchEvent(new Event(PAGE_CHANGED));
         }
+
     }
 
+    public function get appHeight():Number {
+        return _appHeight;
+    }
 
+    public function set appHeight(value:Number):void {
+        _appHeight = value;
+        trace(appHeight);
+    }
+
+    public function get appWidth():Number {
+        return _appWidth;
+    }
+
+    public function set appWidth(value:Number):void {
+        _appWidth = value;
+        trace(appWidth);
+    }
+
+    public function get pageIndex():uint {
+        return _pageIndex;
+    }
+
+    public function set pageIndex(value:uint):void {
+        if(_pageIndex != value){
+            if(value == pages.length){
+                _pageIndex = pages.length-1;
+            }else if(value == -1){
+                _pageIndex = 0;
+            }else{
+                _pageIndex = value;
+                dispatchEvent(new Event(PAGE_INDEX_CHANGED));
+            }
+            trace("[APPMODEL] pageIndex = " + _pageIndex);
+        }
+    }
 }
 }
 internal class Enforcer{}
