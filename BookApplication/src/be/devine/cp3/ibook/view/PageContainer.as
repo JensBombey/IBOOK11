@@ -30,14 +30,6 @@ public class PageContainer extends Sprite{
         appmodel.addEventListener(AppModel.PAGE_CHANGED, pageChangedHandler);
         appmodel.addEventListener(AppModel.PAGE_INDEX_CHANGED, pageIndexChangedHandler);
         currentPageIndex = appmodel.pageIndex = 0;
-        showPages();
-    }
-
-    // METHODS
-    private function showPages():void{
-        trace("[PAGECONTAINER] Showpages function");
-        this.removeChildren();
-        this.dispose();
 
         container = new Sprite();
 
@@ -46,24 +38,33 @@ public class PageContainer extends Sprite{
         bg.y = appmodel.appHeight/2 - bg.height/2;
         container.addChild(bg);
 
-        pages = appmodel.pages;
-        trace(pages[1].element);
-        currentPage = new Page(pages[1]);
-        container.addChild(currentPage);
-
         menu = new Menu();
         container.addChild(menu);
-
+        showPages();
         addChild(container);
     }
 
+    // METHODS
+    private function showPages():void{
+        trace("[PAGECONTAINER] Showpages function");
+        this.removeChildren();
+        this.dispose();
+
+        pages = appmodel.pages;
+        trace(pages[1].element);
+        currentPage = new Page(pages[currentPageIndex]);
+        container.addChild(currentPage);
+    }
+
     private function pageChangedHandler(e:Event):void{
-        // telkens als de pagina verandert de showPages functie aanroepen --> verwijdert de huidige pagina en voegt de nieuwe toe adhv currentPageIndex
-        showPages();
+
     }
 
     private function pageIndexChangedHandler(e:Event):void{
-
+        trace("currentPageIndex changed");
+        currentPageIndex = appmodel.pageIndex;
+        // telkens als de pagina verandert de showPages functie aanroepen --> verwijdert de huidige pagina en voegt de nieuwe toe adhv currentPageIndex
+        showPages();
     }
 }
 }

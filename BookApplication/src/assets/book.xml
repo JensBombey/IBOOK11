@@ -20,7 +20,7 @@
 
     <page number="3">
         <element type="image">
-        <photo x="" y="" width="" height="">images/path3.jpg</photo>
+        <photo x="" y="" width="" height="">assets/book/map.png</photo>
         </element>
     </page>
 
