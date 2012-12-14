@@ -100,13 +100,14 @@ public class AppModel extends EventDispatcher{
         if(_pageIndex != value){
             if(value == pages.length){
                 _pageIndex = pages.length-1;
-            }else if(value == -1){
+            }else if(value == 4294967295){
+
                 _pageIndex = 0;
             }else{
                 _pageIndex = value;
-                dispatchEvent(new Event(PAGE_INDEX_CHANGED));
             }
             trace("[APPMODEL] pageIndex = " + _pageIndex);
+                dispatchEvent(new Event(PAGE_INDEX_CHANGED));
         }
     }
 }

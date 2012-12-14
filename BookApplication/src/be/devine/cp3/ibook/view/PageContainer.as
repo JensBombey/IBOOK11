@@ -9,10 +9,11 @@ package be.devine.cp3.ibook.view {
 import be.devine.cp3.ibook.model.AppModel;
 import be.devine.cp3.ibook.vo.PageVO;
 
+import flash.events.Event;
+
 import starling.display.Quad;
 
 import starling.display.Sprite;
-import starling.events.Event;
 
 public class PageContainer extends Sprite{
 
@@ -47,8 +48,7 @@ public class PageContainer extends Sprite{
         container.addChild(bg);
 
         pages = appmodel.pages;
-        trace(pages[1].element);
-        currentPage = new Page(pages[1]);
+        currentPage = new Page(pages[currentPageIndex]);
         container.addChild(currentPage);
 
         menu = new Menu();
@@ -59,11 +59,15 @@ public class PageContainer extends Sprite{
 
     private function pageChangedHandler(e:Event):void{
         // telkens als de pagina verandert de showPages functie aanroepen --> verwijdert de huidige pagina en voegt de nieuwe toe adhv currentPageIndex
+/*
         showPages();
+*/
     }
 
     private function pageIndexChangedHandler(e:Event):void{
-
+        // telkens als de pagina verandert de showPages functie aanroepen --> verwijdert de huidige pagina en voegt de nieuwe toe adhv currentPageIndex
+        currentPageIndex = appmodel.pageIndex;
+        showPages();
     }
 }
 }

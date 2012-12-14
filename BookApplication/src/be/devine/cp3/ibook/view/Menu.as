@@ -6,6 +6,9 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.ibook.view {
+import be.devine.cp3.ibook.model.AppModel;
+import be.devine.cp3.ibook.view.menuElements.Arrow;
+
 import flash.display.Bitmap;
 import flash.display.Loader;
 import flash.events.Event;
@@ -13,41 +16,54 @@ import flash.net.URLRequest;
 
 import starling.display.Image;
 import starling.display.Sprite;
+import starling.events.Touch;
+import starling.events.TouchEvent;
+import starling.events.TouchPhase;
 import starling.textures.Texture;
 
 public class Menu extends Sprite{
 
-    private var previousButton:Image;
-    private var previousButtonLoader:Loader;
-    private var nextButton:Image;
-    private var nextButtonLoader:Loader;
+    private var appModel:AppModel;
+
+    private var prevButton:Arrow;
+
+    private var nextButton:Arrow;
 
 
     public function Menu() {
-        trace("MENU construct");
-        previousButtonLoader = new Loader();
-        previousButtonLoader.load(new URLRequest("assets/design/previous_arrow.png"));
-        previousButtonLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, previousButtonLoaded);
-        nextButtonLoader = new Loader();
-        nextButtonLoader.load(new URLRequest("assets/design/next_arrow.png"));
-        nextButtonLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, nextButtonLoaded);
+        this.appModel = AppModel.getInstance();
 
+        prevButton = new Arrow();
+        addChild(prevButton);
+
+        nextButton = new Arrow();
+        addChild(nextButton);
+        nextButton.scaleX = -1;
+        nextButton.x = prevButton.x + 200;
+
+
+        prevButton.addEventListener(TouchEvent.TOUCH, prevPage);
+        nextButton.addEventListener(TouchEvent.TOUCH, nextPage);
     }
 
     // METHODS
-    private function previousButtonLoaded(e:Event):void{
-        trace("previous button");
-        var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(previousButtonLoader.content as Bitmap);
-        previousButton = new Image(texture);
-        addChild(previousButton);
+    private function prevPage(te:TouchEvent):void{
+        if (te.getTouch(this, TouchPhase.ENDED))
+        {
+
+            appModel.pageIndex --;
+        }
     }
 
-    private function nextButtonLoaded(e:Event):void{
-        trace("next button");
-        var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(nextButtonLoader.content as Bitmap);
-        nextButton = new Image(texture);
-        nextButton.x = 200;
-        addChild(nextButton);
+    private function nextPage(te:TouchEvent):void{
+        if (te.getTouch(this, TouchPhase.ENDED))
+        {
+
+            appModel.pageIndex ++;
+        }
     }
+
+
+
 }
 }
