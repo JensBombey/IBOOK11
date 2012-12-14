@@ -26,6 +26,7 @@ public class PageIndicator extends Sprite{
     private var currentPageButtonLoader:Loader;
     private var currentPageButton:Image;
     private var appModel:AppModel;
+    public var textfield:starling.text.TextField;
 
     [Embed(source="/assets/design/currentpage.png")] private static const CurrentPagePNG:Class;
 
@@ -39,7 +40,7 @@ public class PageIndicator extends Sprite{
         addChild(currentPageButton);
         var pageIndex:Number = appModel.pageIndex;
         var pageIndexString:String = (pageIndex + 1).toString();
-        var textfield:starling.text.TextField = new starling.text.TextField(200,40,pageIndexString,Style.FONT,14,0x656565,true)
+        textfield = new starling.text.TextField(200,40,pageIndexString,Style.FONT,14,0x656565,true);
         addChild(textfield);
         trace("[MENU] " + pageIndexString);
     }

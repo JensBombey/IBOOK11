@@ -28,7 +28,7 @@ public class Menu extends Sprite{
 
     private var prevButton:Arrow;
     private var nextButton:Arrow;
-    private var indicator:PageIndicator;
+    public var indicator:PageIndicator;
 
 
 
@@ -50,6 +50,8 @@ public class Menu extends Sprite{
         prevButton.addEventListener(TouchEvent.TOUCH, prevPage);
         nextButton.addEventListener(TouchEvent.TOUCH, nextPage);
 
+        appModel.addEventListener(AppModel.PAGE_INDEX_CHANGED, pageIndexChangedHandler);
+
 
     }
 
@@ -70,6 +72,23 @@ public class Menu extends Sprite{
             appModel.pageIndex ++;
         }
     }
+
+    private function pageIndexChangedHandler():void{
+        trace("pageIndex: " + appModel.pageIndex);
+        if(appModel.pageIndex == 0)
+        {
+            removeChild(prevButton);
+        }else{
+            addChild(prevButton);
+        }
+        if(appModel.pageIndex == appModel.pages.length - 1)
+        {
+            removeChild(nextButton);
+        }else{
+            addChild(nextButton);
+        }
+    }
+
 
 
 
