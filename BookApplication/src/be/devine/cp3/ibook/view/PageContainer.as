@@ -40,7 +40,7 @@ public class PageContainer extends Sprite{
         menu = new Menu();
         this.addChild(menu);
         menu.x = 29;
-        menu.y = 597;
+        menu.y = 0;
         menuAdded = true;
     }
 

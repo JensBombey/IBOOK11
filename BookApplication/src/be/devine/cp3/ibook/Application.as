@@ -35,7 +35,7 @@ public class Application extends starling.display.Sprite{
 
 
     public function Application() {
-        trace("[Application] constructor")
+        trace("[Application] constructor");
         appModel = AppModel.getInstance();
         this.addEventListener(starling.events.Event.ADDED_TO_STAGE, addedToStageHandler);
 /*
@@ -75,7 +75,7 @@ public class Application extends starling.display.Sprite{
     }
 
     private function keyboardHandler(e:KeyboardEvent):void {
-        trace(e.keyCode);
+        //trace(e.keyCode);
         if(e.keyCode == 39)
         {
             appModel.pageIndex ++;
@@ -83,6 +83,11 @@ public class Application extends starling.display.Sprite{
         if(e.keyCode == 37)
         {
             appModel.pageIndex --;
+        }
+        if(e.keyCode == 32)
+        {
+
+            appModel.showThumbs = !appModel.showThumbs;
         }
     }
 

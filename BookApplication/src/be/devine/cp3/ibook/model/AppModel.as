@@ -21,11 +21,13 @@ public class AppModel extends EventDispatcher{
 
     public static const PAGE_CHANGED:String = "pageChanged";
     public static const PAGE_INDEX_CHANGED:String = "pageIndexChanged";
+    public static const SHOW_THUMBS_CHANGED:String = "showThumbsChanged";
 
     private var _pages:Vector.<PageVO>;
     private var _appWidth:Number;
     private var _appHeight:Number;
     private var _pageIndex:uint;
+    private var _showThumbs:Boolean = false;
 
 
     //=====CONSTRUCTOR=====
@@ -103,6 +105,16 @@ public class AppModel extends EventDispatcher{
             trace("[APPMODEL] pageIndex = " + _pageIndex);
                 dispatchEvent(new Event(PAGE_INDEX_CHANGED));
         }
+    }
+
+    public function get showThumbs():Boolean {
+        return _showThumbs;
+    }
+
+    public function set showThumbs(value:Boolean):void {
+        _showThumbs = value;
+        dispatchEvent(new Event(SHOW_THUMBS_CHANGED));
+
     }
 }
 }

@@ -9,12 +9,16 @@ package be.devine.cp3.ibook.view {
 import be.devine.cp3.ibook.model.AppModel;
 import be.devine.cp3.ibook.view.menuElements.Arrow;
 import be.devine.cp3.ibook.view.menuElements.PageIndicator;
+import be.devine.cp3.ibook.view.menuElements.ThumbsBar;
+
+import com.greensock.TweenLite;
 
 import flash.display.Bitmap;
 import flash.display.Loader;
 import flash.net.URLRequest;
 
 import starling.display.Image;
+import starling.display.Quad;
 import starling.display.Sprite;
 import starling.events.KeyboardEvent;
 import starling.events.Touch;
@@ -30,6 +34,9 @@ public class Menu extends Sprite{
     private var nextButton:Arrow;
     public var indicator:PageIndicator;
 
+    private var thumbsBar:ThumbsBar;
+    private var blackOverlay:Quad;
+
 
 
     public function Menu() {
@@ -37,23 +44,39 @@ public class Menu extends Sprite{
 
         indicator = new PageIndicator();
         addChild(indicator);
+        indicator.y = 659;
+        indicator.x = 380;
 
         prevButton = new Arrow();
         addChild(prevButton);
+        prevButton.y = 659;
 
         nextButton = new Arrow();
         addChild(nextButton);
         nextButton.scaleX = -1;
-        nextButton.x = prevButton.x + 200;
+        nextButton.x = 966;
+        nextButton.y = 659;
+
+        thumbsBar = new ThumbsBar();
+        thumbsBar.y = -thumbsBar.height;
+
+        blackOverlay = new Quad(964,624,0x000000);
+        blackOverlay.x = appModel.appWidth/2 - blackOverlay.width/2;
+        blackOverlay.y = appModel.appHeight/2 - blackOverlay.height/2;
+        blackOverlay.x = 0;
+        blackOverlay.alpha = 0;
 
 
         prevButton.addEventListener(TouchEvent.TOUCH, prevPage);
         nextButton.addEventListener(TouchEvent.TOUCH, nextPage);
 
         appModel.addEventListener(AppModel.PAGE_INDEX_CHANGED, pageIndexChangedHandler);
+        appModel.addEventListener(AppModel.SHOW_THUMBS_CHANGED, showThumbsChangedHandler);
 
 
     }
+
+
 
 
     // METHODS
@@ -89,7 +112,26 @@ public class Menu extends Sprite{
         }
     }
 
+    private function showThumbsChangedHandler():void {
+        if(appModel.showThumbs)
+        {
+            addChild(blackOverlay);
+            addChild(thumbsBar);
+            TweenLite.to(blackOverlay,1, {alpha:.5});
+            TweenLite.to(thumbsBar,1, {y:0});
 
+        }else{
+            TweenLite.to(blackOverlay,1, {alpha:0, onComplete:toggleVisibility});
+            TweenLite.to(thumbsBar,1, {y:-thumbsBar.height, onComplete:toggleVisibility});
+
+        }
+
+    }
+
+    private function toggleVisibility():void{
+        removeChild(blackOverlay);
+        removeChild(thumbsBar);
+    }
 
 
 
