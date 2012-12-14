@@ -47,6 +47,9 @@ public class PageContainer extends Sprite{
 
         menu = new Menu();
         container.addChild(menu);
+        menu.x = 29;
+        menu.y = container.height -27;
+
         addChild(container);
 
         pages = appmodel.pages;

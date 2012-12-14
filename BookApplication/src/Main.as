@@ -12,6 +12,7 @@ import flash.geom.Rectangle;
 import flash.text.TextField;
 
 import starling.core.Starling;
+import starling.events.KeyboardEvent;
 
 public class Main extends Sprite {
     private var app:Sprite;
@@ -47,6 +48,11 @@ public class Main extends Sprite {
             addChild(regular);*/
         }
 
+
+
+
     }
+
+
 }
 }

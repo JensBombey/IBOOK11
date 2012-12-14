@@ -6,18 +6,12 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.ibook.model {
-import be.devine.cp3.ibook.Application;
-import be.devine.cp3.ibook.factory.vo.PageVOFactory;
 import be.devine.cp3.ibook.vo.PageVO;
-import be.devine.cp3.ibook.xmlParser.XMLParser;
-
-import flash.events.EventDispatcher;
-import flash.net.URLLoader;
-import flash.net.URLRequest;
 
 import starling.events.Event;
+import starling.events.EventDispatcher;
 
-public class AppModel extends starling.events.EventDispatcher{
+public class AppModel extends EventDispatcher{
 
     private static var instance:AppModel;
 /*    public var loadedXML:XML;
@@ -100,7 +94,7 @@ public class AppModel extends starling.events.EventDispatcher{
         if(_pageIndex != value){
             if(value == pages.length){
                 _pageIndex = pages.length-1;
-            }else if(value == 4294967295){
+            }else if(value == uint.MAX_VALUE){
 
                 _pageIndex = 0;
             }else{

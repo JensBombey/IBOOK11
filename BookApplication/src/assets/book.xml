@@ -26,8 +26,8 @@
 
     <page number="4">
         <element type="titleText">
-        <title x="" y="" fontSize="" font="" color="">Chapter 1: Blablabla</title>
-        <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+            <title x="" y="" fontSize="" font="" color="">Chapter 1: Blablabla</title>
+            <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
         </element>
     </page>
 
@@ -39,7 +39,7 @@
 
     <page number="6">
         <element type="imageText">
-        <photo x="" y="" width="" height="">images/path3.jpg</photo>
+        <photo x="" y="" width="" height="">assets/book/devine.jpg</photo>
         <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
         </element>
     </page>

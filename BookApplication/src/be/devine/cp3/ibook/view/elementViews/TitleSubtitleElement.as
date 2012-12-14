@@ -5,7 +5,7 @@
  * Time: 23:12
  * To change this template use File | Settings | File Templates.
  */
-package be.devine.cp3.ibook.view.Elements {
+package be.devine.cp3.ibook.view.elementViews {
 import be.devine.cp3.ibook.Application;
 import be.devine.cp3.ibook.model.AppModel;
 import be.devine.cp3.ibook.style.Style;

@@ -20,17 +20,11 @@ import starling.textures.Texture;
 public class Arrow extends Sprite{
 
     private var previousButton:Image;
-    private var previousButtonLoader:Loader;
+
+    [Embed(source="/assets/design/previous_arrow.png")] private static const PreviousArrowPng:Class;
 
     public function Arrow() {
-
-        previousButtonLoader = new Loader();
-        previousButtonLoader.load(new URLRequest("assets/design/previous_arrow.png"));
-        previousButtonLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, previousButtonLoaded);
-    }
-
-    private function previousButtonLoaded(e:Event):void{
-        var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(previousButtonLoader.content as Bitmap);
+        var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(new PreviousArrowPng());
         previousButton = new Image(texture);
         addChild(previousButton);
         previousButton.addEventListener(TouchEvent.TOUCH, onTouch);

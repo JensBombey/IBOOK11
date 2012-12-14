@@ -5,7 +5,7 @@
  * Time: 23:11
  * To change this template use File | Settings | File Templates.
  */
-package be.devine.cp3.ibook.view.Elements {
+package be.devine.cp3.ibook.view.elementViews {
 import be.devine.cp3.ibook.vo.ImageVO;
 
 import flash.display.Bitmap;

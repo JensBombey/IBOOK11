@@ -21,6 +21,7 @@ import flash.text.Font;
 
 import starling.core.Starling;
 import starling.display.Sprite;
+import starling.events.KeyboardEvent;
 
 public class Application extends starling.display.Sprite{
 
@@ -36,14 +37,19 @@ public class Application extends starling.display.Sprite{
     public function Application() {
         trace("[Application] constructor")
         appModel = AppModel.getInstance();
-
+        this.addEventListener(starling.events.Event.ADDED_TO_STAGE, addedToStageHandler);
 /*
         appModel.addEventListener(AppModel.XML_CHANGED, pagesChangedHandler);
 */
         pageService = new PageService();
         pageService.addEventListener(Event.COMPLETE, pagesCompleted);
         pageService.load();
+        //stage.addEventListener(KeyboardEvent.KEY_DOWN, keyboardHandler);
 
+    }
+
+    private function addedToStageHandler(e:starling.events.Event):void{
+        stage.addEventListener(KeyboardEvent.KEY_DOWN, keyboardHandler);
     }
 
     private function pagesCompleted(e:Event):void {
@@ -65,6 +71,18 @@ public class Application extends starling.display.Sprite{
         fonts.sortOn("fontName",Array.CASEINSENSITIVE);
         for(var i:uint = 0; i<fonts.length;i++){
             trace(fonts[i].fontName + ", " + fonts[i].fontStyle);
+        }
+    }
+
+    private function keyboardHandler(e:KeyboardEvent):void {
+        trace(e.keyCode);
+        if(e.keyCode == 39)
+        {
+            appModel.pageIndex ++;
+        }
+        if(e.keyCode == 37)
+        {
+            appModel.pageIndex --;
         }
     }
 

@@ -27,20 +27,15 @@ public class PageIndicator extends Sprite{
     private var currentPageButton:Image;
     private var appModel:AppModel;
 
+    [Embed(source="/assets/design/currentpage.png")] private static const CurrentPagePNG:Class;
+
     public function PageIndicator() {
 
         this.appModel = AppModel.getInstance();
-        currentPageButtonLoader = new Loader();
-        currentPageButtonLoader.load(new URLRequest("assets/design/currentpage.png"));
-        currentPageButtonLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, currentPageButtonLoaded);
 
-    }
-
-    private function currentPageButtonLoaded(e:Event):void{
-        trace("current page button");
-        var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(currentPageButtonLoader.content as Bitmap);
+        var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(new CurrentPagePNG);
         currentPageButton = new Image(texture);
-        currentPageButton.x = 100;
+        currentPageButton.x = 87;
         addChild(currentPageButton);
         var pageIndex:Number = appModel.pageIndex;
         var pageIndexString:String = (pageIndex + 1).toString();
@@ -48,5 +43,6 @@ public class PageIndicator extends Sprite{
         addChild(textfield);
         trace("[MENU] " + pageIndexString);
     }
+
 }
 }

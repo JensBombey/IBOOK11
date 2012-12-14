@@ -12,11 +12,11 @@ import be.devine.cp3.ibook.view.menuElements.PageIndicator;
 
 import flash.display.Bitmap;
 import flash.display.Loader;
-import flash.events.Event;
 import flash.net.URLRequest;
 
 import starling.display.Image;
 import starling.display.Sprite;
+import starling.events.KeyboardEvent;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
@@ -51,8 +51,8 @@ public class Menu extends Sprite{
         nextButton.addEventListener(TouchEvent.TOUCH, nextPage);
 
 
-
     }
+
 
     // METHODS
     private function prevPage(te:TouchEvent):void{
@@ -70,6 +70,7 @@ public class Menu extends Sprite{
             appModel.pageIndex ++;
         }
     }
+
 
 
 
