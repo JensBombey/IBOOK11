@@ -75,10 +75,7 @@ public class Menu extends Sprite{
         addChild(currentPageButton);
         var pageIndex:Number = appmodel.pageIndex;
         var pageIndexString:String = (pageIndex + 1).toString();
-        var textfield:starling.text.TextField = new starling.text.TextField(200,40,pageIndexString,Style.FONT,14,0xe16565,true)
-/*
-        textfield.x = 100;
-*/
+        var textfield:starling.text.TextField = new starling.text.TextField(200,40,pageIndexString,Style.FONT,14,0x656565,true)
         addChild(textfield);
         trace("[MENU] " + pageIndexString);
     }
