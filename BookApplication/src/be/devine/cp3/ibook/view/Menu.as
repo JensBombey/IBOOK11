@@ -7,77 +7,73 @@
  */
 package be.devine.cp3.ibook.view {
 import be.devine.cp3.ibook.model.AppModel;
-import be.devine.cp3.ibook.style.Style;
+import be.devine.cp3.ibook.view.menuElements.Arrow;
+import be.devine.cp3.ibook.view.menuElements.PageIndicator;
 
 import flash.display.Bitmap;
 import flash.display.Loader;
 import flash.events.Event;
 import flash.net.URLRequest;
-import flash.text.TextField;
-
-import starling.core.Starling;
 
 import starling.display.Image;
 import starling.display.Sprite;
-import starling.text.TextField;
+import starling.events.Touch;
+import starling.events.TouchEvent;
+import starling.events.TouchPhase;
 import starling.textures.Texture;
 
 public class Menu extends Sprite{
 
-    private var currentPageButton:Image;
-    private var currentPageButtonLoader:Loader;
-    private var previousButton:Image;
-    private var previousButtonLoader:Loader;
-    private var nextButton:Image;
-    private var nextButtonLoader:Loader;
-    private var appmodel:AppModel;
+    private var appModel:AppModel;
+
+    private var prevButton:Arrow;
+    private var nextButton:Arrow;
+    private var indicator:PageIndicator;
+
 
 
     public function Menu() {
+        this.appModel = AppModel.getInstance();
 
-        trace("MENU construct");
+        indicator = new PageIndicator();
+        addChild(indicator);
 
-        appmodel = AppModel.getInstance();
-        appmodel.pageIndex = 2;
-        previousButtonLoader = new Loader();
-        previousButtonLoader.load(new URLRequest("assets/design/previous_arrow.png"));
-        previousButtonLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, previousButtonLoaded);
-        nextButtonLoader = new Loader();
-        nextButtonLoader.load(new URLRequest("assets/design/next_arrow.png"));
-        nextButtonLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, nextButtonLoaded);
-        currentPageButtonLoader = new Loader();
-        currentPageButtonLoader.load(new URLRequest("assets/design/currentpage.png"));
-        currentPageButtonLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, currentPageButtonLoaded);
+        prevButton = new Arrow();
+        addChild(prevButton);
+
+        nextButton = new Arrow();
+        addChild(nextButton);
+        nextButton.scaleX = -1;
+        nextButton.x = prevButton.x + 200;
+
+
+        prevButton.addEventListener(TouchEvent.TOUCH, prevPage);
+        nextButton.addEventListener(TouchEvent.TOUCH, nextPage);
+
+
 
     }
 
     // METHODS
-    private function previousButtonLoaded(e:Event):void{
-        trace("previous button");
-        var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(previousButtonLoader.content as Bitmap);
-        previousButton = new Image(texture);
-        addChild(previousButton);
+    private function prevPage(te:TouchEvent):void{
+        if (te.getTouch(this, TouchPhase.ENDED))
+        {
+
+            appModel.pageIndex --;
+        }
     }
 
-    private function nextButtonLoaded(e:Event):void{
-        trace("next button");
-        var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(nextButtonLoader.content as Bitmap);
-        nextButton = new Image(texture);
-        nextButton.x = 200;
-        addChild(nextButton);
+    private function nextPage(te:TouchEvent):void{
+        if (te.getTouch(this, TouchPhase.ENDED))
+        {
+
+            appModel.pageIndex ++;
+        }
     }
 
-    private function currentPageButtonLoaded(e:Event):void{
-        trace("current page button");
-        var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(currentPageButtonLoader.content as Bitmap);
-        currentPageButton = new Image(texture);
-        currentPageButton.x = 100;
-        addChild(currentPageButton);
-        var pageIndex:Number = appmodel.pageIndex;
-        var pageIndexString:String = (pageIndex + 1).toString();
-        var textfield:starling.text.TextField = new starling.text.TextField(200,40,pageIndexString,Style.FONT,14,0x656565,true)
-        addChild(textfield);
-        trace("[MENU] " + pageIndexString);
-    }
+
+
+
+
 }
 }
