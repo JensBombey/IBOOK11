@@ -11,13 +11,13 @@ import be.devine.cp3.ibook.factory.vo.PageVOFactory;
 import be.devine.cp3.ibook.vo.PageVO;
 import be.devine.cp3.ibook.xmlParser.XMLParser;
 
-import flash.events.Event;
-
 import flash.events.EventDispatcher;
 import flash.net.URLLoader;
 import flash.net.URLRequest;
 
-public class AppModel extends EventDispatcher{
+import starling.events.Event;
+
+public class AppModel extends starling.events.EventDispatcher{
 
     private static var instance:AppModel;
 /*    public var loadedXML:XML;

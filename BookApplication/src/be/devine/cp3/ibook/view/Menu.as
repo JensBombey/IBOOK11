@@ -8,6 +8,7 @@
 package be.devine.cp3.ibook.view {
 import be.devine.cp3.ibook.model.AppModel;
 import be.devine.cp3.ibook.view.menuElements.Arrow;
+import be.devine.cp3.ibook.view.menuElements.PageIndicator;
 
 import flash.display.Bitmap;
 import flash.display.Loader;
@@ -26,12 +27,16 @@ public class Menu extends Sprite{
     private var appModel:AppModel;
 
     private var prevButton:Arrow;
-
     private var nextButton:Arrow;
+    private var indicator:PageIndicator;
+
 
 
     public function Menu() {
         this.appModel = AppModel.getInstance();
+
+        indicator = new PageIndicator();
+        addChild(indicator);
 
         prevButton = new Arrow();
         addChild(prevButton);
@@ -44,6 +49,9 @@ public class Menu extends Sprite{
 
         prevButton.addEventListener(TouchEvent.TOUCH, prevPage);
         nextButton.addEventListener(TouchEvent.TOUCH, nextPage);
+
+
+
     }
 
     // METHODS
@@ -62,6 +70,8 @@ public class Menu extends Sprite{
             appModel.pageIndex ++;
         }
     }
+
+
 
 
 

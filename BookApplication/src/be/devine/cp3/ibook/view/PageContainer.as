@@ -27,9 +27,17 @@ public class PageContainer extends Sprite{
     public function PageContainer() {
         trace("[PAGECONTAINER CONSTRUCT]");
         appmodel = AppModel.getInstance();
-        appmodel.addEventListener(AppModel.PAGE_CHANGED, pageChangedHandler);
         appmodel.addEventListener(AppModel.PAGE_INDEX_CHANGED, pageIndexChangedHandler);
         currentPageIndex = appmodel.pageIndex = 0;
+        showPages();
+    }
+
+    // METHODS
+    private function showPages():void{
+        trace("[PAGECONTAINER] Showpages function");
+        this.removeChildren();
+        this.dispose();
+
         container = new Sprite();
 
         bg = new Quad(964,624,0xffffff);
@@ -39,15 +47,7 @@ public class PageContainer extends Sprite{
 
         menu = new Menu();
         container.addChild(menu);
-        showPages();
         addChild(container);
-    }
-
-    // METHODS
-    private function showPages():void{
-        trace("[PAGECONTAINER] Showpages function");
-        this.removeChildren();
-        this.dispose();
 
         pages = appmodel.pages;
         currentPage = new Page(pages[currentPageIndex]);
