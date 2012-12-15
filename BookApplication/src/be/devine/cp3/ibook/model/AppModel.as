@@ -22,12 +22,14 @@ public class AppModel extends EventDispatcher{
     public static const PAGE_CHANGED:String = "pageChanged";
     public static const PAGE_INDEX_CHANGED:String = "pageIndexChanged";
     public static const SHOW_THUMBS_CHANGED:String = "showThumbsChanged";
+    public static const THUMB_PATHS_CHANGED:String = "thumbPathsChanged";
 
     private var _pages:Vector.<PageVO>;
     private var _appWidth:Number;
     private var _appHeight:Number;
     private var _pageIndex:uint;
     private var _showThumbs:Boolean = false;
+    private var _arrThumbPaths:Vector.<String>;
 
 
     //=====CONSTRUCTOR=====
@@ -115,6 +117,15 @@ public class AppModel extends EventDispatcher{
         _showThumbs = value;
         dispatchEvent(new Event(SHOW_THUMBS_CHANGED));
 
+    }
+
+    public function get arrThumbPaths():Vector.<String> {
+        return _arrThumbPaths;
+    }
+
+    public function set arrThumbPaths(value:Vector.<String>):void {
+        _arrThumbPaths = value;
+        dispatchEvent(new Event(THUMB_PATHS_CHANGED));
     }
 }
 }

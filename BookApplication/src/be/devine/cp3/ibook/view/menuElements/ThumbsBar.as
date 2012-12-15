@@ -6,6 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.ibook.view.menuElements {
+import be.devine.cp3.ibook.model.AppModel;
+
 import flash.geom.Point;
 
 import starling.display.Image;
@@ -15,10 +17,16 @@ import starling.textures.Texture;
 public class ThumbsBar extends Sprite{
 
     private var bgBar:Image;
+    private var appModel:AppModel;
+    public var thumbsContainer:Sprite;
 
     [Embed(source="/assets/design/thumbsBarSlice.png")] private static const ThumbsBarSlice:Class;
 
     public function ThumbsBar() {
+        appModel = AppModel.getInstance();
+        thumbsContainer = new Sprite();
+        addChild(thumbsContainer);
+
         var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(new ThumbsBarSlice());
 
         texture.repeat = true;
@@ -34,6 +42,24 @@ public class ThumbsBar extends Sprite{
         bgBar.width *= horizontal;
         bgBar.height = vertical;
         addChild(bgBar);
+
+        appModel.addEventListener(AppModel.THUMB_PATHS_CHANGED,thumbPathsChangedHandler)
+
+    }
+
+    private function thumbPathsChangedHandler():void{
+        var xPos:uint = 0;
+        removeChild(thumbsContainer);
+        for each(var path:String in appModel.arrThumbPaths)
+        {
+            var thumbnail:Thumbnail = new Thumbnail(path);
+            thumbsContainer.addChild(thumbnail);
+            thumbnail.x = xPos;
+            xPos +=200;
+            trace("THUMBNAIL XPOS "+ thumbnail.width);
+        }
+
+        addChild(thumbsContainer);
 
     }
 }

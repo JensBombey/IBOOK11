@@ -6,9 +6,11 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.ibook.view {
+import be.devine.cp3.ibook.service.ThumbnailService;
 import be.devine.cp3.ibook.model.AppModel;
 import be.devine.cp3.ibook.view.menuElements.Arrow;
 import be.devine.cp3.ibook.view.menuElements.PageIndicator;
+import be.devine.cp3.ibook.view.menuElements.Thumbnail;
 import be.devine.cp3.ibook.view.menuElements.ThumbsBar;
 
 import com.greensock.TweenLite;
@@ -36,6 +38,7 @@ public class Menu extends Sprite{
 
     private var thumbsBar:ThumbsBar;
     private var blackOverlay:Quad;
+    private var thumbService:ThumbnailService;
 
 
 
@@ -73,6 +76,8 @@ public class Menu extends Sprite{
         appModel.addEventListener(AppModel.PAGE_INDEX_CHANGED, pageIndexChangedHandler);
         appModel.addEventListener(AppModel.SHOW_THUMBS_CHANGED, showThumbsChangedHandler);
 
+        appModel.addEventListener(AppModel.PAGE_CHANGED, pagesChangedHandler);
+        pagesChangedHandler();
 
     }
 
@@ -132,6 +137,14 @@ public class Menu extends Sprite{
         removeChild(blackOverlay);
         removeChild(thumbsBar);
     }
+
+    private function pagesChangedHandler():void{
+        thumbService = new ThumbnailService(appModel.pages);
+
+
+    }
+
+
 
 
 

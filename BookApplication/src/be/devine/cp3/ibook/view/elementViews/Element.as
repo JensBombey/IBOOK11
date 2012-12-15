@@ -8,6 +8,7 @@
 package be.devine.cp3.ibook.view.elementViews {
 import be.devine.cp3.ibook.vo.ElementVO;
 
+
 import starling.display.Sprite;
 
 public class Element extends Sprite {

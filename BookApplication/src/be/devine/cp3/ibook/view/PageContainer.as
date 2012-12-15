@@ -64,6 +64,7 @@ public class PageContainer extends Sprite{
             menu.indicator.textfield.text = currentPageIndex + 1 + "";
         }
         container.addChild(currentPage);
+        trace("currentpage: " +currentPage);
 
 
     }

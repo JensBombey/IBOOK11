@@ -58,7 +58,7 @@ public class Home extends starling.display.Sprite {
     }
 
     private function backgroundLoadingCompleteHandler(e:starling.events.Event):void{
-        trace("[HOME] pagecontainer aanmaken")
+        trace("[HOME] pagecontainer aanmaken");
         pageContainer = new PageContainer();
         addChild(pageContainer);
     }

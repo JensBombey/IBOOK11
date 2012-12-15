@@ -15,6 +15,8 @@ import be.devine.cp3.ibook.view.elementViews.TitleTextElement;
 import be.devine.cp3.ibook.vo.ElementVO;
 import be.devine.cp3.ibook.vo.PageVO;
 
+
+
 import starling.display.Sprite;
 
 public class Page extends Sprite{
