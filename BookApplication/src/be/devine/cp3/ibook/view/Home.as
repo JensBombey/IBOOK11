@@ -10,7 +10,6 @@ import be.devine.cp3.ibook.model.AppModel;
 
 import flash.display.Bitmap;
 import flash.display.Loader;
-import flash.display3D.textures.Texture;
 import flash.events.Event;
 import flash.geom.Point;
 import flash.net.URLRequest;

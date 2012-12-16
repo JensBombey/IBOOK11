@@ -96,32 +96,13 @@ public class ThumbsBar extends Sprite{
         arrThumbs[appModel.pageIndex].active = true;
 
         //verschuif thumbnails
-
-            var difference:int = appModel.prevPageIndex - appModel.pageIndex;
-            trace("INDEX: " + appModel.pageIndex);
-
-
         if(appModel.pageIndex >= 4)
         {
-            thumbsContainer.x += (difference) * 120;
+            thumbsContainer.x = -((appModel.pageIndex-4)*120) + 5;
+        }else{
 
-        }
-
-        if(appModel.pageIndex == 3 && appModel.prevPageIndex == 4)
-        {
-            thumbsContainer.x += (difference) * 120;
-        }
-        trace("containerX: " + thumbsContainer.x);
-        if(appModel.pageIndex <=4 && thumbsContainer.x <= 4 && thumbsContainer.x > -235)
-        {
-            thumbsContainer.x = 125;
-
-        }
-        if(thumbsContainer.x == 245)
-        {
             thumbsContainer.x = 125;
         }
-
 
     }
 

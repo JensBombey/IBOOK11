@@ -13,8 +13,6 @@ import be.devine.cp3.ibook.vo.PageVO;
 import com.adobe.images.JPGEncoder;
 
 
-import flash.display.Bitmap;
-
 import flash.display.BitmapData;
 import flash.display3D.Context3D;
 import flash.filesystem.File;
@@ -30,7 +28,6 @@ import starling.display.Quad;
 
 
 import starling.display.Sprite;
-import starling.events.Event;
 import starling.utils.getNextPowerOfTwo;
 
 

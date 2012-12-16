@@ -10,23 +10,14 @@ import be.devine.cp3.ibook.service.ThumbnailService;
 import be.devine.cp3.ibook.model.AppModel;
 import be.devine.cp3.ibook.view.menuElements.Arrow;
 import be.devine.cp3.ibook.view.menuElements.PageIndicator;
-import be.devine.cp3.ibook.view.menuElements.Thumbnail;
 import be.devine.cp3.ibook.view.menuElements.ThumbsBar;
 
 import com.greensock.TweenLite;
 
-import flash.display.Bitmap;
-import flash.display.Loader;
-import flash.net.URLRequest;
-
-import starling.display.Image;
 import starling.display.Quad;
 import starling.display.Sprite;
-import starling.events.KeyboardEvent;
-import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
-import starling.textures.Texture;
 
 public class Menu extends Sprite{
 
