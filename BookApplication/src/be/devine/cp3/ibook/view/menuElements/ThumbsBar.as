@@ -9,10 +9,6 @@ package be.devine.cp3.ibook.view.menuElements {
 import be.devine.cp3.ibook.model.AppModel;
 
 import flash.geom.Point;
-import flash.geom.Rectangle;
-
-import starling.core.RenderSupport;
-import starling.core.Starling;
 
 import starling.display.Image;
 import starling.display.Quad;
@@ -25,15 +21,19 @@ public class ThumbsBar extends Sprite{
 
     private var bgBar:Image;
     private var appModel:AppModel;
-    public var thumbsContainer:Sprite;
+    public var thumbsContainer:ThumbsContainer;
     private var arrThumbs:Vector.<Thumbnail>;
-    private var prevThumbPos:uint = 0;
+    private var line:Quad = new Quad(1,105,0x888888, true);
+    private var controls:Controls;
+
+
 
     [Embed(source="/assets/design/thumbsBarSlice.png")] private static const ThumbsBarSlice:Class;
 
+
     public function ThumbsBar() {
         appModel = AppModel.getInstance();
-        thumbsContainer = new Sprite();
+        thumbsContainer = new ThumbsContainer();
         addChild(thumbsContainer);
 
         var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(new ThumbsBarSlice());
@@ -51,6 +51,10 @@ public class ThumbsBar extends Sprite{
         bgBar.width *= horizontal;
         bgBar.height = vertical;
         addChild(bgBar);
+        addChild(line);
+
+        line.x = 120;
+        line.y = 5;
 
         appModel.addEventListener(AppModel.THUMB_PATHS_CHANGED,thumbPathsChangedHandler);
         appModel.addEventListener(AppModel.PAGE_INDEX_CHANGED,pageIndexChangedHandler);
@@ -58,15 +62,6 @@ public class ThumbsBar extends Sprite{
 
     }
 
-    public override function render(support:RenderSupport, alpha:Number):void
-    {
-        support.finishQuadBatch();
-
-        Starling.context.setScissorRectangle(new Rectangle(20,0,974,133));
-        super.render(support,alpha);
-        support.finishQuadBatch();
-        Starling.context.setScissorRectangle(null);
-    }
 
     private function thumbPathsChangedHandler():void{
         var xPos:uint = 0;
@@ -85,9 +80,12 @@ public class ThumbsBar extends Sprite{
             thumbnail.addEventListener(TouchEvent.TOUCH, touchHandler);
         }
         addChild(thumbsContainer);
-        thumbsContainer.x = 5;
+        thumbsContainer.x = 125;
         thumbsContainer.y = 5;
 
+        //overlay moet uitgemaskte thumbs bedekken zodat er niet op geklikt kan worden
+        controls = new Controls();
+        addChild(controls);
     }
 
     private function pageIndexChangedHandler():void{
@@ -98,26 +96,33 @@ public class ThumbsBar extends Sprite{
         arrThumbs[appModel.pageIndex].active = true;
 
         //verschuif thumbnails
-        if(prevThumbPos < arrThumbs[appModel.pageIndex].x)
-        {
-            if(arrThumbs[appModel.pageIndex].x > 900)
-            {
-                thumbsContainer.x -=120;
-            }
-        }else if(prevThumbPos > arrThumbs[appModel.pageIndex].x){
-            trace("XPOS: " +arrThumbs[appModel.pageIndex].x);
-            trace("XPOS: " +120*appModel.pageIndex);
-            if(arrThumbs[appModel.pageIndex].x < 120*(appModel.pageIndex+1))
-            {
-                if(appModel.pageIndex >=7)
-                {
-                    thumbsContainer.x +=120;
 
-                }
-            }
+            var difference:int = appModel.prevPageIndex - appModel.pageIndex;
+            trace("INDEX: " + appModel.pageIndex);
+
+
+        if(appModel.pageIndex >= 4)
+        {
+            thumbsContainer.x += (difference) * 120;
+
         }
 
-        prevThumbPos = arrThumbs[appModel.pageIndex].x;
+        if(appModel.pageIndex == 3 && appModel.prevPageIndex == 4)
+        {
+            thumbsContainer.x += (difference) * 120;
+        }
+        trace("containerX: " + thumbsContainer.x);
+        if(appModel.pageIndex <=4 && thumbsContainer.x <= 4 && thumbsContainer.x > -235)
+        {
+            thumbsContainer.x = 125;
+
+        }
+        if(thumbsContainer.x == 245)
+        {
+            thumbsContainer.x = 125;
+        }
+
+
     }
 
     private function touchHandler(te:TouchEvent):void

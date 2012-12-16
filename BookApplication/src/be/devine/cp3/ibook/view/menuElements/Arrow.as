@@ -35,7 +35,7 @@ public class Arrow extends Sprite{
         if (te.getTouch(this, TouchPhase.HOVER))
         {
             this.alpha=0.7;
-            trace(this);
+
         }
         else
         {

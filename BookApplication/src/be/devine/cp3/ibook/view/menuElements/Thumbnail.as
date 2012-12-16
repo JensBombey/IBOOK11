@@ -37,7 +37,7 @@ public class Thumbnail extends Sprite{
         imageLoader = new Loader();
         imageLoader.load(new URLRequest(path));
         imageLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, thumbLoaded);
-        textfield = new starling.text.TextField(40,40,"",Style.FONT,35,0x999999,true);
+        textfield = new starling.text.TextField(60,40,"",Style.FONT,35,0x999999,true);
 
     }
 
@@ -55,7 +55,8 @@ public class Thumbnail extends Sprite{
         image.x = 5;
         image.y = 5;
         textfield.alpha=0;
-        textfield.x = textfield.y = 30;
+        textfield.x = 20;
+        textfield.y = 30;
 
         image.width = 95;
         image.height = 95;

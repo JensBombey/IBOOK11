@@ -7,6 +7,7 @@
  */
 package be.devine.cp3.ibook.view {
 import be.devine.cp3.ibook.model.AppModel;
+import be.devine.cp3.ibook.view.pageElements.Bookmark;
 import be.devine.cp3.ibook.vo.PageVO;
 
 import starling.display.Quad;
@@ -24,6 +25,7 @@ public class PageContainer extends Sprite{
     private var bg:starling.display.Quad;
     private var menu:Menu;
     private var menuAdded:Boolean = false;
+    private var bookmark:Bookmark;
 
     public function PageContainer() {
         trace("[PAGECONTAINER CONSTRUCT]");
@@ -50,8 +52,6 @@ public class PageContainer extends Sprite{
         container.removeChildren();
         container.dispose();
 
-
-
         bg = new Quad(964,624,0xffffff);
         bg.x = appmodel.appWidth/2 - bg.width/2;
         bg.y = appmodel.appHeight/2 - bg.height/2;
@@ -65,6 +65,19 @@ public class PageContainer extends Sprite{
         }
         container.addChild(currentPage);
         trace("currentpage: " +currentPage);
+
+        bookmark = new Bookmark(currentPageIndex);
+        container.addChild(bookmark);
+        bookmark.x = 40;
+        bookmark.y = 60;
+        if(currentPageIndex == appmodel.bookmarkIndex)
+        {
+            bookmark.active = true;
+            bookmark.alpha = 1;
+        }else{
+            bookmark.active = false;
+            bookmark.alpha = .25;
+        }
 
 
     }

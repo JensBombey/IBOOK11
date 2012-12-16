@@ -8,6 +8,8 @@
 package be.devine.cp3.ibook.model {
 import be.devine.cp3.ibook.vo.PageVO;
 
+import flash.net.SharedObject;
+
 import starling.events.Event;
 import starling.events.EventDispatcher;
 
@@ -31,6 +33,9 @@ public class AppModel extends EventDispatcher{
     private var _showThumbs:Boolean = false;
     private var _arrThumbPaths:Vector.<String>;
 
+    public var prevPageIndex:uint = 0;
+    public var _bookmarkIndex:uint;
+
 
     //=====CONSTRUCTOR=====
     public function AppModel(e:Enforcer)
@@ -39,7 +44,9 @@ public class AppModel extends EventDispatcher{
             throw new Error("AppModel is a singleton, use getInstance() instead");
         }
 
-
+        var sharedObject:SharedObject = SharedObject.getLocal("bookmarkInfo");
+        bookmarkIndex = sharedObject.data.bookMarkIndex ;
+        trace("BOOKMARKINDEX: " + bookmarkIndex);
 
 /*
         this.load("assets/book.xml");*/
@@ -96,6 +103,7 @@ public class AppModel extends EventDispatcher{
 
     public function set pageIndex(value:uint):void {
         if(_pageIndex != value){
+            prevPageIndex = _pageIndex;
             if(value == pages.length){
                 _pageIndex = pages.length-1;
             }else if(value == uint.MAX_VALUE){
@@ -126,6 +134,14 @@ public class AppModel extends EventDispatcher{
     public function set arrThumbPaths(value:Vector.<String>):void {
         _arrThumbPaths = value;
         dispatchEvent(new Event(THUMB_PATHS_CHANGED));
+    }
+
+    public function get bookmarkIndex():uint {
+        return _bookmarkIndex;
+    }
+
+    public function set bookmarkIndex(value:uint):void {
+        _bookmarkIndex = value;
     }
 }
 }
