@@ -90,7 +90,7 @@ public class ThumbnailService extends Sprite{
 
     }
 
-
+        //Functie die Starling Sprite omzet naar BitmapData
     public static function copyAsBitmapData(sprite:starling.display.DisplayObject):BitmapData {
         if (sprite == null) return null;
 

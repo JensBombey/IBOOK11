@@ -122,6 +122,7 @@ public class Menu extends Sprite{
         {
             addChild(blackOverlay);
             addChild(thumbsBar);
+
             TweenLite.to(blackOverlay,1, {alpha:.5});
             TweenLite.to(thumbsBar,1, {y:0});
 

@@ -11,7 +11,10 @@ import be.devine.cp3.ibook.model.AppModel;
 import flash.geom.Point;
 
 import starling.display.Image;
+import starling.display.Quad;
 import starling.display.Sprite;
+import starling.events.TouchEvent;
+import starling.events.TouchPhase;
 import starling.textures.Texture;
 
 public class ThumbsBar extends Sprite{
@@ -19,6 +22,7 @@ public class ThumbsBar extends Sprite{
     private var bgBar:Image;
     private var appModel:AppModel;
     public var thumbsContainer:Sprite;
+    private var arrThumbs:Vector.<Thumbnail>;
 
     [Embed(source="/assets/design/thumbsBarSlice.png")] private static const ThumbsBarSlice:Class;
 
@@ -43,24 +47,51 @@ public class ThumbsBar extends Sprite{
         bgBar.height = vertical;
         addChild(bgBar);
 
-        appModel.addEventListener(AppModel.THUMB_PATHS_CHANGED,thumbPathsChangedHandler)
+        appModel.addEventListener(AppModel.THUMB_PATHS_CHANGED,thumbPathsChangedHandler);
+        appModel.addEventListener(AppModel.PAGE_INDEX_CHANGED,pageIndexChangedHandler);
 
     }
 
     private function thumbPathsChangedHandler():void{
         var xPos:uint = 0;
         removeChild(thumbsContainer);
+        arrThumbs = new Vector.<Thumbnail>();
         for each(var path:String in appModel.arrThumbPaths)
         {
             var thumbnail:Thumbnail = new Thumbnail(path);
+            arrThumbs.push(thumbnail);
             thumbsContainer.addChild(thumbnail);
             thumbnail.x = xPos;
-            xPos +=200;
-            trace("THUMBNAIL XPOS "+ thumbnail.width);
+            xPos +=120;
+            thumbnail.addEventListener(TouchEvent.TOUCH, touchHandler);
         }
-
         addChild(thumbsContainer);
+        thumbsContainer.x = 5;
+        thumbsContainer.y = 5;
 
+    }
+
+    private function pageIndexChangedHandler():void{
+        for each(var thumb:Thumbnail in arrThumbs)
+        {
+            thumb.active = false;
+        }
+        arrThumbs[appModel.pageIndex].active = true;
+    }
+
+    private function touchHandler(te:TouchEvent):void
+    {
+
+        if (te.getTouch(this, TouchPhase.ENDED))
+        {
+            for(var i:uint=0; i<arrThumbs.length; i++)
+            {
+                if(te.currentTarget == arrThumbs[i])
+                {
+                    appModel.pageIndex = i;
+                }
+            }
+        }
     }
 }
 }
