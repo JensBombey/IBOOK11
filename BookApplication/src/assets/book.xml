@@ -44,5 +44,41 @@
         </element>
     </page>
 
+    <page number="7">
+        <element type="text">
+            <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+        </element>
+    </page>
+
+    <page number="8">
+        <element type="text">
+            <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+        </element>
+    </page>
+
+    <page number="9">
+        <element type="text">
+            <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+        </element>
+    </page>
+
+    <page number="10">
+        <element type="text">
+            <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+        </element>
+    </page>
+
+    <page number="11">
+        <element type="text">
+            <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+        </element>
+    </page>
+
+    <page number="12">
+        <element type="text">
+            <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+        </element>
+    </page>
+
 
 </book>

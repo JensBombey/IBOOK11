@@ -7,6 +7,8 @@
  */
 package be.devine.cp3.ibook.view.menuElements {
 
+import be.devine.cp3.ibook.style.Style;
+
 import flash.display.Bitmap;
 import flash.display.Loader;
 import flash.events.Event;
@@ -18,6 +20,7 @@ import starling.display.Quad;
 import starling.display.Sprite;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
+import starling.text.TextField;
 import starling.textures.Texture;
 
 public class Thumbnail extends Sprite{
@@ -26,6 +29,7 @@ public class Thumbnail extends Sprite{
     private var thumbHolder:Sprite;
     private var image:Image;
     private var border:Quad;
+    public var textfield:TextField;
     private var _active:Boolean = false;
 
     public function Thumbnail(path:String) {
@@ -33,6 +37,7 @@ public class Thumbnail extends Sprite{
         imageLoader = new Loader();
         imageLoader.load(new URLRequest(path));
         imageLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, thumbLoaded);
+        textfield = new starling.text.TextField(40,40,"",Style.FONT,35,0x999999,true);
 
     }
 
@@ -46,8 +51,11 @@ public class Thumbnail extends Sprite{
         addChild(thumbHolder);
         thumbHolder.addChild(border);
         thumbHolder.addChild(image);
+        thumbHolder.addChild(textfield);
         image.x = 5;
         image.y = 5;
+        textfield.alpha=0;
+        textfield.x = textfield.y = 30;
 
         image.width = 95;
         image.height = 95;
@@ -60,13 +68,14 @@ public class Thumbnail extends Sprite{
         if (te.getTouch(this, TouchPhase.HOVER))
         {
             this.border.color=0xe16565;
+            textfield.alpha=.5;
         }
         else
         {
             if(this.active == false)
             {
                 this.border.color=0x555555;
-
+                textfield.alpha=0;
             }
         }
 
@@ -81,10 +90,12 @@ public class Thumbnail extends Sprite{
         if(value)
         {
             this.border.color=0xe16565;
+            textfield.alpha=.5;
         }
         else
         {
             this.border.color=0x555555;
+            textfield.alpha=0;
         }
     }
 }

@@ -9,6 +9,10 @@ package be.devine.cp3.ibook.view.menuElements {
 import be.devine.cp3.ibook.model.AppModel;
 
 import flash.geom.Point;
+import flash.geom.Rectangle;
+
+import starling.core.RenderSupport;
+import starling.core.Starling;
 
 import starling.display.Image;
 import starling.display.Quad;
@@ -23,6 +27,7 @@ public class ThumbsBar extends Sprite{
     private var appModel:AppModel;
     public var thumbsContainer:Sprite;
     private var arrThumbs:Vector.<Thumbnail>;
+    private var prevThumbPos:uint = 0;
 
     [Embed(source="/assets/design/thumbsBarSlice.png")] private static const ThumbsBarSlice:Class;
 
@@ -50,17 +55,31 @@ public class ThumbsBar extends Sprite{
         appModel.addEventListener(AppModel.THUMB_PATHS_CHANGED,thumbPathsChangedHandler);
         appModel.addEventListener(AppModel.PAGE_INDEX_CHANGED,pageIndexChangedHandler);
 
+
+    }
+
+    public override function render(support:RenderSupport, alpha:Number):void
+    {
+        support.finishQuadBatch();
+
+        Starling.context.setScissorRectangle(new Rectangle(20,0,974,133));
+        super.render(support,alpha);
+        support.finishQuadBatch();
+        Starling.context.setScissorRectangle(null);
     }
 
     private function thumbPathsChangedHandler():void{
         var xPos:uint = 0;
+        var i:uint = 0;
         removeChild(thumbsContainer);
         arrThumbs = new Vector.<Thumbnail>();
         for each(var path:String in appModel.arrThumbPaths)
         {
+            i++;
             var thumbnail:Thumbnail = new Thumbnail(path);
             arrThumbs.push(thumbnail);
             thumbsContainer.addChild(thumbnail);
+            thumbnail.textfield.text = i +"";
             thumbnail.x = xPos;
             xPos +=120;
             thumbnail.addEventListener(TouchEvent.TOUCH, touchHandler);
@@ -77,6 +96,28 @@ public class ThumbsBar extends Sprite{
             thumb.active = false;
         }
         arrThumbs[appModel.pageIndex].active = true;
+
+        //verschuif thumbnails
+        if(prevThumbPos < arrThumbs[appModel.pageIndex].x)
+        {
+            if(arrThumbs[appModel.pageIndex].x > 900)
+            {
+                thumbsContainer.x -=120;
+            }
+        }else if(prevThumbPos > arrThumbs[appModel.pageIndex].x){
+            trace("XPOS: " +arrThumbs[appModel.pageIndex].x);
+            trace("XPOS: " +120*appModel.pageIndex);
+            if(arrThumbs[appModel.pageIndex].x < 120*(appModel.pageIndex+1))
+            {
+                if(appModel.pageIndex >=7)
+                {
+                    thumbsContainer.x +=120;
+
+                }
+            }
+        }
+
+        prevThumbPos = arrThumbs[appModel.pageIndex].x;
     }
 
     private function touchHandler(te:TouchEvent):void
