@@ -15,11 +15,13 @@ import com.adobe.images.JPGEncoder;
 
 import flash.display.BitmapData;
 import flash.display3D.Context3D;
+import flash.events.TimerEvent;
 import flash.filesystem.File;
 import flash.filesystem.FileMode;
 import flash.filesystem.FileStream;
 import flash.geom.Rectangle;
 import flash.utils.ByteArray;
+import flash.utils.Timer;
 
 import starling.core.RenderSupport;
 
@@ -28,6 +30,7 @@ import starling.display.Quad;
 
 
 import starling.display.Sprite;
+import starling.events.Event;
 import starling.utils.getNextPowerOfTwo;
 
 
@@ -39,6 +42,9 @@ public class ThumbnailService extends Sprite{
     public static const THUMBS_MADE:String = "thumbsMade";
     private var appModel:AppModel;
     private var arrPaths:Vector.<String>;
+    private var arrPages:Vector.<PageVO>;
+    private var timer:Timer;
+    private var i:uint=0;
 
     public function ThumbnailService(pages:Vector.<PageVO>) {
 
@@ -46,10 +52,17 @@ public class ThumbnailService extends Sprite{
 
         arrPaths = new Vector.<String>;
 
+        arrPages = pages;
+
         container = new Sprite();
         this.addChild(container);
         container.width = container.height = 500;
 
+        timer = new Timer(200, appModel.pages.length);
+        timer.addEventListener(TimerEvent.TIMER, tickHandler);
+        timer.addEventListener(TimerEvent.TIMER_COMPLETE, thumbsCompleteHandler);
+        timer.start();
+        /*
         for each(var page:PageVO in pages)
         {
             //Inhoud van de pagina in container steken
@@ -63,8 +76,7 @@ public class ThumbnailService extends Sprite{
             container.addChild(tempPage);
 
             //Bitmap maken van de container
-            /*var bmpData:BitmapData = new BitmapData(container.width, container.height, false, 0xffffff);
-            bmpData.draw(container);*/
+
             container.scaleY = 0.207;
             container.scaleX = 0.325;
             var bmpData:BitmapData = copyAsBitmapData(container);
@@ -84,7 +96,52 @@ public class ThumbnailService extends Sprite{
             arrPaths.push(path);
             appModel.arrThumbPaths= arrPaths;
         }
+        */
 
+    }
+
+    private function thumbsCompleteHandler(e:TimerEvent):void {
+        appModel.thumbsMade = true;
+    }
+
+    private function tickHandler(e:TimerEvent):void {
+        //Inhoud van de pagina in container steken
+        container.removeChildren();
+        tempPage = new Page(arrPages[i]);
+        i++
+        whiteOverlay = new Quad(964,964,0xffffff);
+
+        container.addChild(whiteOverlay);
+        whiteOverlay.y = 0;
+        container.addChild(tempPage);
+
+        //Bitmap maken van de container
+
+        container.scaleY = 0.207;
+        container.scaleX = 0.325;
+
+        var loadingTimer:Timer = new Timer(100, 1);
+        loadingTimer.addEventListener(TimerEvent.TIMER, loadingTickHandler);
+        loadingTimer.start();
+    }
+
+    private function loadingTickHandler(e:TimerEvent):void {
+        var bmpData:BitmapData = copyAsBitmapData(container);
+
+        //Bitmap encoderen naar een jpg
+        var encoder:JPGEncoder = new JPGEncoder();
+        var jpgBytes:ByteArray = encoder.encode(bmpData);
+
+        var file:File = File.applicationStorageDirectory.resolvePath("thumbs"+ "/" + "thumb" + tempPage.pageNumber + ".jpg");
+        var fileStream:FileStream = new FileStream();
+
+        fileStream.open(file, FileMode.WRITE);
+        fileStream.writeBytes(jpgBytes);
+        fileStream.close();
+        var path:String = file.url;
+
+        arrPaths.push(path);
+        appModel.arrThumbPaths= arrPaths;
     }
 
         //Functie die Starling Sprite omzet naar BitmapData

@@ -6,6 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.ibook.model {
+import be.devine.cp3.ibook.service.ThumbnailService;
 import be.devine.cp3.ibook.vo.PageVO;
 
 import flash.net.SharedObject;
@@ -25,6 +26,7 @@ public class AppModel extends EventDispatcher{
     public static const PAGE_INDEX_CHANGED:String = "pageIndexChanged";
     public static const SHOW_THUMBS_CHANGED:String = "showThumbsChanged";
     public static const THUMB_PATHS_CHANGED:String = "thumbPathsChanged";
+    public static const THUMBS_MADE:String = "thumbsMade";
 
     private var _pages:Vector.<PageVO>;
     private var _appWidth:Number;
@@ -32,6 +34,7 @@ public class AppModel extends EventDispatcher{
     private var _pageIndex:uint;
     private var _showThumbs:Boolean = false;
     private var _arrThumbPaths:Vector.<String>;
+    private var _thumbsMade:Boolean = false;
 
     public var prevPageIndex:uint = 0;
     public var _bookmarkIndex:uint;
@@ -47,9 +50,6 @@ public class AppModel extends EventDispatcher{
         var sharedObject:SharedObject = SharedObject.getLocal("bookmarkInfo");
         bookmarkIndex = sharedObject.data.bookMarkIndex ;
         trace("BOOKMARKINDEX: " + bookmarkIndex);
-
-/*
-        this.load("assets/book.xml");*/
     }
 
 
@@ -102,18 +102,22 @@ public class AppModel extends EventDispatcher{
     }
 
     public function set pageIndex(value:uint):void {
-        if(_pageIndex != value){
-            prevPageIndex = _pageIndex;
-            if(value == pages.length){
-                _pageIndex = pages.length-1;
-            }else if(value == uint.MAX_VALUE){
+        if(_thumbsMade)
+        {
+            if(_pageIndex != value){
+                prevPageIndex = _pageIndex;
+                if(value == pages.length){
+                    _pageIndex = pages.length-1;
+                }else if(value == uint.MAX_VALUE){
 
-                _pageIndex = 0;
-            }else{
-                _pageIndex = value;
+                    _pageIndex = 0;
+                }else{
+                    _pageIndex = value;
+                }
+                trace("[APPMODEL] pageIndex = " + _pageIndex);
+                    dispatchEvent(new Event(PAGE_INDEX_CHANGED));
             }
-            trace("[APPMODEL] pageIndex = " + _pageIndex);
-                dispatchEvent(new Event(PAGE_INDEX_CHANGED));
+
         }
     }
 
@@ -142,6 +146,15 @@ public class AppModel extends EventDispatcher{
 
     public function set bookmarkIndex(value:uint):void {
         _bookmarkIndex = value;
+    }
+
+    public function get thumbsMade():Boolean {
+        return _thumbsMade;
+    }
+
+    public function set thumbsMade(value:Boolean):void {
+        _thumbsMade = value;
+        dispatchEvent(new Event(THUMBS_MADE));
     }
 }
 }

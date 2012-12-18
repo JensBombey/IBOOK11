@@ -7,6 +7,9 @@
  */
 package be.devine.cp3.ibook.view {
 import be.devine.cp3.ibook.model.AppModel;
+import be.devine.cp3.ibook.style.Style;
+
+import com.greensock.TweenLite;
 
 import flash.display.Bitmap;
 import flash.display.Loader;
@@ -15,8 +18,10 @@ import flash.geom.Point;
 import flash.net.URLRequest;
 
 import starling.display.Image;
+import starling.display.Quad;
 import starling.display.Sprite;
 import starling.events.Event;
+import starling.text.TextField;
 import starling.textures.Texture;
 
 public class Home extends starling.display.Sprite {
@@ -25,11 +30,25 @@ public class Home extends starling.display.Sprite {
 
     private var backgroundImage:Image;
     private var backgroundLoader:Loader;
-    private var appmodel:AppModel;
+    private var appModel:AppModel;
     private var pageContainer:PageContainer;
+    private var loadingContainer:Sprite;
+    private var blackOverlay:Quad;
 
     public function Home() {
         trace("Home [CONSTRUCT]");
+
+        appModel = AppModel.getInstance();
+        loadingContainer = new Sprite();
+        blackOverlay = new Quad(appModel.appWidth,appModel.appHeight,0x000000);
+        loadingContainer.addChild(blackOverlay);
+        blackOverlay.alpha = .8;
+        var textfield = new TextField(600,400,"",Style.FONT,35,0xffffff,true);
+        loadingContainer.addChild(textfield);
+        textfield.text = "LOADING THUMBNAILS";
+        textfield.x = appModel.appWidth/2 - textfield.width/2;
+        textfield.y = 100;
+
 
         backgroundLoader = new Loader();
         backgroundLoader.load(new URLRequest("assets/design/bg_pattern.png"));
@@ -60,6 +79,18 @@ public class Home extends starling.display.Sprite {
         trace("[HOME] pagecontainer aanmaken");
         pageContainer = new PageContainer();
         addChild(pageContainer);
+        addChild(loadingContainer);
+        appModel.addEventListener(AppModel.THUMBS_MADE, thumbsMadeHandler);
     }
+
+    private function thumbsMadeHandler():void {
+
+        TweenLite.to(loadingContainer,1, {alpha:0, onComplete:toggleVisibility});
+    }
+
+    private function toggleVisibility():void{
+        removeChild(loadingContainer);
+    }
+
 }
 }

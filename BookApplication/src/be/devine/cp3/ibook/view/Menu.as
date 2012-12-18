@@ -16,6 +16,7 @@ import com.greensock.TweenLite;
 
 import starling.display.Quad;
 import starling.display.Sprite;
+import starling.events.Event;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
@@ -133,9 +134,7 @@ public class Menu extends Sprite{
     private function pagesChangedHandler():void{
         thumbService = new ThumbnailService(appModel.pages);
 
-
     }
-
 
 
 

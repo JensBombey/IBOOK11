@@ -60,6 +60,7 @@ public class ThumbsBar extends Sprite{
         appModel.addEventListener(AppModel.PAGE_INDEX_CHANGED,pageIndexChangedHandler);
 
 
+
     }
 
 
@@ -83,7 +84,7 @@ public class ThumbsBar extends Sprite{
         thumbsContainer.x = 125;
         thumbsContainer.y = 5;
 
-        //overlay moet uitgemaskte thumbs bedekken zodat er niet op geklikt kan worden
+        //controls moet uitgemaskte thumbs bedekken zodat er niet op geklikt kan worden
         controls = new Controls();
         addChild(controls);
     }
