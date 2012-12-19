@@ -6,6 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.ibook.model {
+import be.devine.cp3.ibook.Config;
 import be.devine.cp3.ibook.service.ThumbnailService;
 import be.devine.cp3.ibook.vo.PageVO;
 
@@ -35,9 +36,12 @@ public class AppModel extends EventDispatcher{
     private var _showThumbs:Boolean = false;
     private var _arrThumbPaths:Vector.<String>;
     private var _thumbsMade:Boolean = false;
+    private var _config:Config = new Config();
+
 
     public var prevPageIndex:uint = 0;
     public var _bookmarkIndex:uint;
+    public var makeThumbs:Boolean;
 
 
     //=====CONSTRUCTOR=====
@@ -50,6 +54,7 @@ public class AppModel extends EventDispatcher{
         var sharedObject:SharedObject = SharedObject.getLocal("bookmarkInfo");
         bookmarkIndex = sharedObject.data.bookMarkIndex ;
         trace("BOOKMARKINDEX: " + bookmarkIndex);
+        makeThumbs = _config.thumbnailGenerator;
     }
 
 

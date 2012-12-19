@@ -132,7 +132,9 @@ public class Menu extends Sprite{
     }
 
     private function pagesChangedHandler():void{
+
         thumbService = new ThumbnailService(appModel.pages);
+
 
     }
 

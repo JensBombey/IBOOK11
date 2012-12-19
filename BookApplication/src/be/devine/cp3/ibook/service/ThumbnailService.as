@@ -58,10 +58,28 @@ public class ThumbnailService extends Sprite{
         this.addChild(container);
         container.width = container.height = 500;
 
-        timer = new Timer(200, appModel.pages.length);
-        timer.addEventListener(TimerEvent.TIMER, tickHandler);
-        timer.addEventListener(TimerEvent.TIMER_COMPLETE, thumbsCompleteHandler);
-        timer.start();
+        if(appModel.makeThumbs)
+        {
+            timer = new Timer(200, appModel.pages.length);
+            timer.addEventListener(TimerEvent.TIMER, tickHandler);
+            timer.addEventListener(TimerEvent.TIMER_COMPLETE, thumbsCompleteHandler);
+            timer.start();
+        }else{
+            for(var i:uint = 1; i<= appModel.pages.length; i++)
+            {
+                var file:File = File.applicationStorageDirectory.resolvePath("thumbs"+ "/" + "thumb" + i + ".jpg");
+                var fileStream:FileStream = new FileStream();
+                trace("FILEPATH " + file.url);
+                fileStream.open(file, FileMode.READ);
+                var path:String = file.url;
+
+                arrPaths.push(path);
+                appModel.arrThumbPaths= arrPaths;
+                appModel.thumbsMade = true;
+
+            }
+            trace("ARRPATHS: " +arrPaths);
+        }
         /*
         for each(var page:PageVO in pages)
         {
@@ -108,7 +126,7 @@ public class ThumbnailService extends Sprite{
         //Inhoud van de pagina in container steken
         container.removeChildren();
         tempPage = new Page(arrPages[i]);
-        i++
+        i++;
         whiteOverlay = new Quad(964,964,0xffffff);
 
         container.addChild(whiteOverlay);
