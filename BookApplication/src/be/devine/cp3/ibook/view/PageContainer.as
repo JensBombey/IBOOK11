@@ -57,7 +57,7 @@ public class PageContainer extends Sprite{
     public override function render(support:RenderSupport, alpha:Number):void
     {
         support.finishQuadBatch();
-        Starling.context.setScissorRectangle(new Rectangle(30, 60, 964, 624));
+        Starling.context.setScissorRectangle(new Rectangle(30, 0, 964, 684));
         super.render(support,alpha);
         support.finishQuadBatch();
         Starling.context.setScissorRectangle(null);
