@@ -10,6 +10,13 @@ import be.devine.cp3.ibook.model.AppModel;
 import be.devine.cp3.ibook.view.pageElements.Bookmark;
 import be.devine.cp3.ibook.vo.PageVO;
 
+import com.greensock.TweenLite;
+
+import flash.geom.Rectangle;
+
+import starling.core.RenderSupport;
+import starling.core.Starling;
+
 import starling.display.Quad;
 
 import starling.display.Sprite;
@@ -20,6 +27,7 @@ public class PageContainer extends Sprite{
     private var appmodel:AppModel;
     private var pages:Vector.<PageVO>;
     private var currentPage:Page;
+    private var tempPage:Page;
     private var currentPageIndex:uint;
     private var container:Sprite;
     private var bg:starling.display.Quad;
@@ -46,9 +54,18 @@ public class PageContainer extends Sprite{
         menuAdded = true;
     }
 
+    public override function render(support:RenderSupport, alpha:Number):void
+    {
+        support.finishQuadBatch();
+        Starling.context.setScissorRectangle(new Rectangle(30, 0, 934, 900));
+        super.render(support,alpha);
+        support.finishQuadBatch()
+        Starling.context.setScissorRectangle(null);
+    }
+
     // METHODS
     private function showPages():void{
-        trace("[PAGECONTAINER] Showpages function " + container.width);
+        trace("[PAGECONTAINER] Showpages function");
         container.removeChildren();
         container.dispose();
 
@@ -63,9 +80,36 @@ public class PageContainer extends Sprite{
         {
             menu.indicator.textfield.text = currentPageIndex + 1 + "";
         }
-
         container.addChild(currentPage);
-        trace("currentpage: " + currentPage);
+
+
+        //Links of rechts plaatsen voor transitie
+        if(appmodel.pageIndex > appmodel.prevPageIndex)
+        {
+            if(currentPageIndex<appmodel.pages.length)
+            {
+                currentPage.alpha = 0;
+                tempPage = new Page(pages[currentPageIndex - 1]);
+                container.addChild(tempPage);
+                TweenLite.to(tempPage,.5, {x:-container.width, alpha:0});
+                currentPage.x = container.width;
+                TweenLite.to(currentPage,.5, {x:0, alpha:1});
+            }
+        }else if(appmodel.pageIndex < appmodel.prevPageIndex)
+        {
+            if(currentPageIndex>0)
+            {
+                currentPage.alpha = 0;
+                tempPage = new Page(pages[currentPageIndex + 1]);
+                container.addChild(tempPage);
+                TweenLite.to(tempPage,.5, {x:+container.width, alpha:0});
+                currentPage.x = -container.width;
+                TweenLite.to(currentPage,.5, {x:0, alpha:1});
+            }
+        }
+
+
+        trace("currentpage: " +currentPage);
 
         bookmark = new Bookmark(currentPageIndex);
         container.addChild(bookmark);

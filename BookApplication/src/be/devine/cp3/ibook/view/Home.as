@@ -78,10 +78,6 @@ public class Home extends starling.display.Sprite {
     private function backgroundLoadingCompleteHandler(e:starling.events.Event):void{
         trace("[HOME] pagecontainer aanmaken");
         pageContainer = new PageContainer();
-        trace("pageContainer width " + pageContainer.width);
-        trace("pageContainer height " + pageContainer.height);
-        trace("pageContainer x " + pageContainer.x);
-        trace("pageContainer y " + pageContainer.y);
 
         addChild(pageContainer);
         if(appModel.makeThumbs)

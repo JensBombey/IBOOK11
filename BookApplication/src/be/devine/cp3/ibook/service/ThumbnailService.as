@@ -70,6 +70,14 @@ public class ThumbnailService extends Sprite{
                 var file:File = File.applicationStorageDirectory.resolvePath("thumbs"+ "/" + "thumb" + i + ".jpg");
                 var fileStream:FileStream = new FileStream();
                 trace("FILEPATH " + file.url);
+                if(fileStream == null)
+                {
+                    timer = new Timer(200, appModel.pages.length);
+                    timer.addEventListener(TimerEvent.TIMER, tickHandler);
+                    timer.addEventListener(TimerEvent.TIMER_COMPLETE, thumbsCompleteHandler);
+                    timer.start();
+                    break;
+                }
                 fileStream.open(file, FileMode.READ);
                 var path:String = file.url;
 

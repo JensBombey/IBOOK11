@@ -120,7 +120,7 @@ public class AppModel extends EventDispatcher{
                     _pageIndex = value;
                 }
                 trace("[APPMODEL] pageIndex = " + _pageIndex);
-                    dispatchEvent(new Event(PAGE_INDEX_CHANGED));
+                dispatchEvent(new Event(PAGE_INDEX_CHANGED));
             }
 
         }
