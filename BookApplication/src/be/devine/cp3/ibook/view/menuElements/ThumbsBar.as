@@ -102,11 +102,11 @@ public class ThumbsBar extends Sprite{
         if(appModel.pageIndex >= 4)
         {
             var targetX:Number = -((appModel.pageIndex-4)*120) + 5;
-            TweenLite.to(thumbsContainer, .3, {x:targetX})
+            TweenLite.to(thumbsContainer, .3, {x:targetX});
         }else{
 
             var targetX:Number = 125;
-            TweenLite.to(thumbsContainer, .3, {x:targetX})
+            TweenLite.to(thumbsContainer, .3, {x:targetX});
         }
 
     }
