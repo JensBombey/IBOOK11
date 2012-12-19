@@ -20,6 +20,7 @@ public class PageContainer extends Sprite{
     private var appmodel:AppModel;
     private var pages:Vector.<PageVO>;
     private var currentPage:Page;
+    private var tempPage:Page;
     private var currentPageIndex:uint;
     private var container:Sprite;
     private var bg:starling.display.Quad;
@@ -84,6 +85,7 @@ public class PageContainer extends Sprite{
 
     private function pageIndexChangedHandler(e:Event):void{
         // telkens als de pagina verandert de showPages functie aanroepen --> verwijdert de huidige pagina en voegt de nieuwe toe adhv currentPageIndex
+        tempPage = currentPage;
         currentPageIndex = appmodel.pageIndex;
         showPages();
 
