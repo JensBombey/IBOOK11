@@ -62,6 +62,9 @@ public class Application extends starling.display.Sprite{
         home = new Home();
         addChild(home);
         showFonts();
+        // pagecontainer in het midden plaatsen
+        home.x = stage.width/2;
+        home.y = stage.height/2;
 
     }
 

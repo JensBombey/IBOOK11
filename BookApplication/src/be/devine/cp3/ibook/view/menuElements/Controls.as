@@ -13,14 +13,23 @@ public class Controls extends Sprite{
 
     private var BG:Quad = new Quad(115,115,0xffffff, true);
     private var bookmarkButton:BookmarkButton;
+    private var fullscreenButton:FullscreenButton;
 
     public function Controls() {
         addChild(BG);
         BG.alpha = .01;
         bookmarkButton = new BookmarkButton();
         addChild(bookmarkButton);
-        bookmarkButton.alpha = .5;
+        bookmarkButton.alpha = 1;
         bookmarkButton.x = 10;
+
+        fullscreenButton = new FullscreenButton();
+        addChild(fullscreenButton);
+        fullscreenButton.x = 40;
+        fullscreenButton.y = 10;
+        fullscreenButton.scaleX = scaleY = .5;
+
+
 
     }
 }
