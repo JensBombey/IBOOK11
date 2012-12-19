@@ -123,6 +123,7 @@ public class Home extends starling.display.Sprite {
 
     private function toggleVisibility():void{
         removeChild(loadingContainer);
+
     }
 
 }
