@@ -51,6 +51,9 @@ public class PageContainer extends Sprite{
         menu.x = 29;
         menu.y = 0;
         menuAdded = true;
+
+
+
     }
     public override function render(support:RenderSupport, alpha:Number):void
      {

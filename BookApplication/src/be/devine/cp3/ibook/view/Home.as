@@ -14,6 +14,7 @@ import com.greensock.TweenLite;
 import flash.display.Bitmap;
 import flash.display.Loader;
 import flash.events.Event;
+import flash.geom.Matrix;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.net.URLRequest;
@@ -22,6 +23,7 @@ import starling.core.RenderSupport;
 import starling.core.Starling;
 
 import starling.display.Image;
+import starling.display.MovieClip;
 import starling.display.Quad;
 import starling.display.Sprite;
 import starling.events.Event;
@@ -62,7 +64,7 @@ public class Home extends starling.display.Sprite {
         backgroundLoader.contentLoaderInfo.addEventListener(flash.events.Event.COMPLETE, backgroundLoadedHandler);
         this.addEventListener(BACKGROUNDLOADING_COMPLETE, backgroundLoadingCompleteHandler);
 
-        appModel.addEventListener(AppModel.SIZE_CHANGED, resizeHandler);
+        //appModel.addEventListener(AppModel.SIZE_CHANGED, resizeHandler);
     }
 
 
@@ -98,8 +100,10 @@ public class Home extends starling.display.Sprite {
 
 
         // pagecontainer in het midden plaatsen
-        /*pageContainer.x = appModel.appWidth/2 - pageContainer.width/2;
-        pageContainer.y = appModel.appHeight/2 - pageContainer.height/2;*/
+        pageContainer.x = appModel.appWidth/2 - pageContainer.width/2;
+        pageContainer.y = appModel.appHeight/2 - pageContainer.height/2;
+
+
 
     }
 
