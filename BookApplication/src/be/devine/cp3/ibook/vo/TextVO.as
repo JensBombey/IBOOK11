@@ -8,10 +8,14 @@
 package be.devine.cp3.ibook.vo {
 public class TextVO extends ElementVO{
 
-    public var content:String;
+    public var paragraafEen:String;
+    public var paragraafTwee:String;
+    public var titel:String;
 
     public function TextVO(elementXML:XML) {
-        content = elementXML.paragraph;
+        paragraafEen = elementXML.paragraph[0];
+        paragraafTwee = elementXML.paragraph[1];
+        titel = elementXML.title;
     }
 }
 }

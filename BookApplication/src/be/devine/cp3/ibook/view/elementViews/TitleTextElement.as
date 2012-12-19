@@ -10,6 +10,8 @@ import be.devine.cp3.ibook.style.Style;
 import be.devine.cp3.ibook.vo.TitleTextVO;
 
 import starling.text.TextField;
+import starling.utils.HAlign;
+import starling.utils.VAlign;
 
 
 public class TitleTextElement extends Element{
@@ -18,11 +20,34 @@ public class TitleTextElement extends Element{
 
         trace("[TitelTextElement]");
 
-        var titel:TextField = new TextField(600,80,titleTextVO.title,Style.FONT,60,0x656565);
+        var titel:TextField = new TextField(864,38,titleTextVO.title,Style.FONT,38,0x656565);
+        titel.hAlign = HAlign.LEFT;
         addChild(titel);
 
-        var paragraaf:TextField = new TextField(392,421,titleTextVO.content,Style.FONT,14,0x656565);
-        addChild(paragraaf);
+        var subtitel:TextField = new TextField(864,16,titleTextVO.subtitle,Style.FONT,14,0xe16565);
+        subtitel.hAlign = HAlign.LEFT;
+        subtitel.italic = true;
+        subtitel.y = titel.height + 10;
+        addChild(subtitel);
+
+        var paragraafEen:TextField = new TextField(392,421,titleTextVO.paragraafEen,Style.FONT,14,0x656565);
+        paragraafEen.hAlign = HAlign.LEFT;
+        paragraafEen.vAlign = VAlign.TOP;
+        paragraafEen.y = subtitel.y + 40;
+        addChild(paragraafEen);
+        var paragraafTwee:TextField = new TextField(392,421,titleTextVO.paragaraafTwee,Style.FONT,14,0x656565);
+        paragraafTwee.hAlign = HAlign.LEFT;
+        paragraafTwee.vAlign = VAlign.TOP;
+        paragraafTwee.x = paragraafEen.width + 40;
+        paragraafTwee.y = paragraafEen.y;
+        addChild(paragraafTwee);
+
+        var info:TextField = new TextField(392,16,titleTextVO.info,Style.FONT,12,0x656565);
+        info.hAlign = HAlign.RIGHT;
+        info.vAlign = VAlign.TOP;
+        info.x = paragraafTwee.x;
+        info.y = paragraafTwee.height + 20;
+        addChild(info);
     }
 }
 }

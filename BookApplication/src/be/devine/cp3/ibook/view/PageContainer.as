@@ -48,7 +48,7 @@ public class PageContainer extends Sprite{
 
     // METHODS
     private function showPages():void{
-        trace("[PAGECONTAINER] Showpages function");
+        trace("[PAGECONTAINER] Showpages function " + container.width);
         container.removeChildren();
         container.dispose();
 
@@ -63,8 +63,9 @@ public class PageContainer extends Sprite{
         {
             menu.indicator.textfield.text = currentPageIndex + 1 + "";
         }
+
         container.addChild(currentPage);
-        trace("currentpage: " +currentPage);
+        trace("currentpage: " + currentPage);
 
         bookmark = new Bookmark(currentPageIndex);
         container.addChild(bookmark);

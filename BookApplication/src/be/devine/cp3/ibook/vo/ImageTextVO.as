@@ -8,12 +8,14 @@
 package be.devine.cp3.ibook.vo {
 public class ImageTextVO extends ElementVO{
 
+    public var titel:String;
     public var imagePath:String;
-    public var content:String;
+    public var paragraafEen:String;
 
     public function ImageTextVO(elementXML:XML) {
+        titel = elementXML.title;
         imagePath = elementXML.photo;
-        content = elementXML.paragraph;
+        paragraafEen = elementXML.paragraph[0];
     }
 }
 }

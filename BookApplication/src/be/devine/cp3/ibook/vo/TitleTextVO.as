@@ -8,13 +8,23 @@
 package be.devine.cp3.ibook.vo {
 public class TitleTextVO extends ElementVO{
 
-    public var content:String;
     public var title:String;
+    public var paragraafEen:String;
+    public var paragaraafTwee:String;
+    public var tfontSize:uint;
+    public var subtitle:String;
+    public var info:String;
 
     public function TitleTextVO (elementXML:XML) {
 
-        content = elementXML.paragraph;
+        paragraafEen = elementXML.paragraph[0];
+        trace("p1  = " + paragraafEen);
+        paragaraafTwee = elementXML.paragraph[1];
+        trace("p2 = " + paragaraafTwee);
+        subtitle = elementXML.subTitle;
         title = elementXML.title;
+        tfontSize = elementXML.title.@fontSize;
+        info = elementXML.info;
 
     }
 }

@@ -10,6 +10,7 @@ import be.devine.cp3.ibook.factory.vo.ElementViewFactory;
 import be.devine.cp3.ibook.model.AppModel;
 import be.devine.cp3.ibook.view.elementViews.Element;
 import be.devine.cp3.ibook.view.elementViews.ImageElement;
+import be.devine.cp3.ibook.view.elementViews.ImageTextElement;
 import be.devine.cp3.ibook.view.elementViews.TitleSubtitleElement;
 import be.devine.cp3.ibook.view.elementViews.TitleTextElement;
 import be.devine.cp3.ibook.vo.ElementVO;
@@ -29,6 +30,8 @@ public class Page extends Sprite{
         this.appModel = AppModel.getInstance();
         this.pageVO = pageVO;
         this.pageNumber = pageVO.pageNumber;
+        this.height = 520;
+        this.width = 864;
         trace("[PAGE_CONSTRUCT]");
 
         for each(var elementVO:ElementVO in pageVO.element) {
@@ -42,15 +45,9 @@ public class Page extends Sprite{
                          titel.y = appmodel.appHeight/2 - titel.height/2;*/
                     trace("[PAGE] het is een titel subtitel element");
                 }
-                if(element is TitleTextElement){
-                    element.x = 50;
-                    element.y = 52;
-                    trace("[PAGE] het is een titel en tekst element");
-                }
-                if(element is ImageElement){
-                    element.x = 75;
-                    element.y = 52;
-                    trace("[PAGE] het is een image element");
+                else{
+                    element.x = 100;
+                    element.y = 120;
                 }
                 addChild(element);
             }

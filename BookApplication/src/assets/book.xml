@@ -1,20 +1,20 @@
 <book>
     <page number="1">
         <element type="titleSubtitle">
-        <title x="" y="" fontSize="38" font="Helvetica" color="0x656565">A GAME OF THRONES</title>
-        <subTitle x="" y="" fontSize="13" font="Helvetica" color="">A Song of Ice and Fire: Book I</subTitle>
+            <title x="" y="" fontSize="38" font="Helvetica" color="0x656565">MUSIC MAGAZINE</title>
+            <subTitle x="" y="" fontSize="13" font="Helvetica" color="">for people that rock</subTitle>
         </element>
     </page>
 
     <page number="2">
-        <element type="titleText">
-        <title x="" y="" fontSize="" font="" color="">Table of Contents</title>
-        <paragraph x="" y="" fontSize="" font="" color="">
-            Chapter 1: blablabla....................4
-            Chapter 2: blablabla....................13
-            Chapter 3: blablabla....................24
-            Chapter 4: blablabla....................32
-        </paragraph>
+        <element type="imageText">
+            <title width="" height="" fontSize="38">MUSE OP WERCHTER BOUTIQUE 2012</title>
+            <photo>assets/book/MuseMatt.jpg</photo>
+            <paragraph id="1" x="" y="" fontSize="" font="" color="">
+                Vorig jaar waren de metalgoden Werchter Boutique goed gezind en zakte Metallica af naar het festivalpark in Werchter. Volgend jaar komt niemand minder dan Muse een topshow geven. Noteer 18 juni alvast in de agenda.
+
+De band maakte het nieuws zelf bekend op zijn website. Tickets kosten 69 euro en zijn verkrijgbaar vanaf 23 november om 10u. Als je dus geen tickets kon bemachtigen voor het uitverkochte concert van Matt Bellamy en co in het Sportpaleis, is dit je kans! Muse releaste onlangs nog het nieuwe album 'The 2nd Law'. Lisa Smolders trok een paar weken geleden naar Amsterdam om met de jongens te praten.
+            </paragraph>
         </element>
     </page>
 
@@ -26,14 +26,30 @@
 
     <page number="4">
         <element type="titleText">
-            <title x="" y="" fontSize="" font="" color="">Chapter 1: Blablabla</title>
-            <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+            <title x="" y="" fontSize="" font="" color="">HOOBASTANK</title>
+            <subTitle>Kan Hoobastank, na jaren van vergelijkingen met soortgenoten Incubus, eindelijk een volwaardige naam voor zichzelf maken?</subTitle>
+            <paragraph x="" y="" fontSize="" font="" color="">Met het tweede album en daarmee een aanzienlijk succes op zak, is Hoobastank momenteel op tournee. The Reason heeft deze band tot nog toe geen windeieren gelegd. Het verhaal over het ontstaan van de band en de nauwe banden met Incubus is bekend en eigenlijk mogen we er niet te veel op doorhameren. Maar het feit blijft dat Hoobastank zich moet ontdoen van die vergelijkingen door een sterkere plaat neer te zetten dan het debuutalbum. Daar zijn ze in geslaagd, maar het blijft gemakkelijk Brandon Boyd en kornuiten er bij te betrekken.
+Dus het bijwonen van een concert in 013 is eigenlijk noodzaak. Eens zien of we hier te maken hebben met Hoobastank, of het jongere broertje van Incu…
+
+De band gaat energiek van start met het tweede nummer van de CD, 'Out of Control'. Op zich een hele flitsende start en we swingen vrolijk met de rest van het publiek mee. Het is een beetje jammer dat zanger Douglas Robb niet echt boven de muziek uit komt. Maar dat gebeurt wel vaker tijdens de eerste twee nummers van een concert, misschien dat de geluidsman daar nog wat aan kan doen.
+            </paragraph>
+            <paragraph>
+Gaandeweg blijkt het probleem niet door de techniek opgelost te kunnen worden. Robb mompelt zelf iets over zijn gezondheid en dat hij zich niet zo best voelt. En dat we dus vooral mee moeten zingen. Door met een mini-cam het publiek te filmen zorgt de kleine zanger voor een uitbundige reactie van de fans.
+Maar als spring-in-'t-veld Robb een paar songs later nog net zo energiek over het podium springt en dartelt rijst de vraag of hij zich echt niet lekker voelt of dat het een excuus is voor zijn beperkte stem volume.
+
+Gedurende het mooie 'Unaffected' staat Robb stil en krijgen we de kans te horen dat hij best prettig kan zingen. Helaas is de rust van korte duur want even later barst 'Same Direction' los en springen publiek en bandleden naar hartelust op en neer. Een terecht openingsnummer van de plaat, maar als tijdens het live-optreden de stem niet prominent aanwezig is missen we toch duidelijk de clue.
+Wanneer de titelsong van The Reason wordt ingezet staat de tent op zijn kop en zingt heel 013 naar hartelust mee. Dat is handig, want het betekent dat Robb weinig hoeft te doen.
+        </paragraph>
+            <info>-- vervolg op pagina 5</info>
         </element>
     </page>
 
     <page number="5">
         <element type="text">
-        <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+            <title>-- vervolg pagina 4</title>
+        <paragraph x="" y="" fontSize="" font="" color="">Vervolgens kan er blijkbaar nog even een hees piepstemmetje geproduceerd worden om Cindy Laupers 'Girl's Just Wanna Have Fun' te piepen. Leuk, maar redelijk onnodig.
+            Het laatste nummer is ook de afsluiter van de CD, 'Disappear'. Wederom een prettige nummer op de plaat, maar niet uitermate geschikt om een concert mee af te sluiten. Doorgaans verwacht de menigte het concert af te kunnen sluiten door een lekker rocknummer waarop fijn gesprongen en gepogo'd kan worden. Dat zit er vanavond niet in. Voordat de bandleden het podium verlaten worden de setlists aan het publiek gegeven en de waterflesjes en de handdoeken uitgedeeld. Sympathiek. Maar de vraag blijft; had Douglas Robb een mindere dag doordat hij zich niet optimaal voelde, of is Hoobastank gewoon niet van het kaliber Incubus? Ze zullen het bewijs moeten leveren, de eerstvolgende keer dat ze naar Nederland terugkeren. En tot die tijd moeten we maar gewoon blijven luisteren naar The Reason, want dat is toch wel een behoorlijk puike plaat.
+        </paragraph>
         </element>
     </page>
 
