@@ -8,6 +8,8 @@
 package be.devine.cp3.ibook.view.menuElements {
 import be.devine.cp3.ibook.model.AppModel;
 
+import com.greensock.TweenLite;
+
 import flash.geom.Point;
 
 import starling.display.Image;
@@ -99,10 +101,12 @@ public class ThumbsBar extends Sprite{
         //verschuif thumbnails
         if(appModel.pageIndex >= 4)
         {
-            thumbsContainer.x = -((appModel.pageIndex-4)*120) + 5;
+            var targetX:Number = -((appModel.pageIndex-4)*120) + 5;
+            TweenLite.to(thumbsContainer, .3, {x:targetX})
         }else{
 
-            thumbsContainer.x = 125;
+            var targetX:Number = 125;
+            TweenLite.to(thumbsContainer, .3, {x:targetX})
         }
 
     }
