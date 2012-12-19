@@ -64,7 +64,7 @@ public class Home extends starling.display.Sprite {
         backgroundLoader.contentLoaderInfo.addEventListener(flash.events.Event.COMPLETE, backgroundLoadedHandler);
         this.addEventListener(BACKGROUNDLOADING_COMPLETE, backgroundLoadingCompleteHandler);
 
-        //appModel.addEventListener(AppModel.SIZE_CHANGED, resizeHandler);
+        appModel.addEventListener(AppModel.SIZE_CHANGED, resizeHandler);
     }
 
 
@@ -100,8 +100,8 @@ public class Home extends starling.display.Sprite {
 
 
         // pagecontainer in het midden plaatsen
-        pageContainer.x = appModel.appWidth/2 - pageContainer.width/2;
-        pageContainer.y = appModel.appHeight/2 - pageContainer.height/2;
+        /*pageContainer.x = appModel.appWidth/2 - pageContainer.width/2;
+        pageContainer.y = appModel.appHeight/2 - pageContainer.height/2;*/
 
 
 
