@@ -46,22 +46,20 @@ public class PageContainer extends Sprite{
 
         showPages();
 
-
         menu = new Menu();
         this.addChild(menu);
         menu.x = 29;
         menu.y = 0;
         menuAdded = true;
     }
-
     public override function render(support:RenderSupport, alpha:Number):void
-    {
-        support.finishQuadBatch();
-        Starling.context.setScissorRectangle(new Rectangle(30, 0, 964, 684));
-        super.render(support,alpha);
-        support.finishQuadBatch();
-        Starling.context.setScissorRectangle(null);
-    }
+     {
+     support.finishQuadBatch();
+     Starling.context.setScissorRectangle(new Rectangle(30, 0, 964, 684));
+     super.render(support,alpha);
+     support.finishQuadBatch();
+     Starling.context.setScissorRectangle(null);
+     }
 
     // METHODS
     private function showPages():void{

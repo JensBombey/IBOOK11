@@ -8,10 +8,12 @@ import flash.display.Screen;
 import flash.display.Sprite;
 import flash.display.StageAlign;
 import flash.display.StageScaleMode;
+import flash.events.Event;
+import flash.geom.Point;
 import flash.geom.Rectangle;
-import flash.text.TextField;
 
 import starling.core.Starling;
+import starling.events.Event;
 import starling.events.KeyboardEvent;
 
 public class Main extends Sprite {
@@ -36,6 +38,13 @@ public class Main extends Sprite {
                 stage.nativeWindow.height
         );
 
+        stage.nativeWindow.minSize = new Point(1024,768);
+
+        stage.addEventListener(flash.events.Event.RESIZE, resizeHandler);
+        startApplication();
+    }
+
+    private function startApplication():void{
         if(useStarling){
             starling = new Starling(Application, stage);
             AppModel.getInstance();
@@ -44,15 +53,24 @@ public class Main extends Sprite {
             starling.start();
         }else{
             /*
-            regular = new Application();
-            addChild(regular);*/
+             regular = new Application();
+             addChild(regular);*/
         }
-
-
-
-
     }
 
+    private function resizeHandler(e:flash.events.Event):void{
+            trace("[MAIN] resizeHandler");
+        AppModel.getInstance().appHeight = stage.stageHeight;
+        AppModel.getInstance().appWidth = stage.stageWidth;
+        display();
+    }
+
+    private function display():void{
+        var rectangle:Rectangle = new Rectangle(0,0,stage.stageWidth,stage.stageHeight);
+        starling.viewPort = rectangle;
+        starling.stage.stageWidth = stage.stageWidth;
+        starling.stage.stageHeight = stage.stageHeight;
+    }
 
 }
 }

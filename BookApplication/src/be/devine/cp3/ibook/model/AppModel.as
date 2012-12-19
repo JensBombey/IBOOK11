@@ -28,6 +28,7 @@ public class AppModel extends EventDispatcher{
     public static const SHOW_THUMBS_CHANGED:String = "showThumbsChanged";
     public static const THUMB_PATHS_CHANGED:String = "thumbPathsChanged";
     public static const THUMBS_MADE:String = "thumbsMade";
+    public static const SIZE_CHANGED:String = "sizeChanged";
 
     private var _pages:Vector.<PageVO>;
     private var _appWidth:Number;
@@ -89,8 +90,12 @@ public class AppModel extends EventDispatcher{
     }
 
     public function set appHeight(value:Number):void {
-        _appHeight = value;
-        trace(appHeight);
+        if(_appHeight != value){
+            _appHeight = value;
+            trace(appHeight);
+            dispatchEvent(new Event(SIZE_CHANGED));
+        }
+
     }
 
     public function get appWidth():Number {
@@ -98,8 +103,11 @@ public class AppModel extends EventDispatcher{
     }
 
     public function set appWidth(value:Number):void {
-        _appWidth = value;
-        trace(appWidth);
+        if(_appWidth != value){
+            _appWidth = value;
+            trace(appWidth);
+            dispatchEvent(new Event(SIZE_CHANGED));
+        }
     }
 
     public function get pageIndex():uint {

@@ -40,7 +40,8 @@ public class PageIndicator extends Sprite{
         addChild(currentPageButton);
         var pageIndex:Number = appModel.pageIndex;
         var pageIndexString:String = (pageIndex + 1).toString();
-        textfield = new starling.text.TextField(200,40,pageIndexString,Style.FONT,14,0x656565,true);
+        textfield = new starling.text.TextField(200,14,pageIndexString,Style.FONT,14,0x656565,true);
+        textfield.y = currentPageButton.height / 2 - textfield.height / 2;
         addChild(textfield);
         trace("[MENU] " + pageIndexString);
     }

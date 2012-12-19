@@ -56,7 +56,7 @@ public class ImageTextElement extends Element{
         trace("imageElementLoaded");
         var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(imageLoader.content as Bitmap);
         var image:Image = new Image(texture);
-        paragraafEen.x = image.width + 30;
+        paragraafEen.x = 420;
         image.y = titel.height*2;
         paragraafEen.y = image.y;
         addChild(paragraafEen);

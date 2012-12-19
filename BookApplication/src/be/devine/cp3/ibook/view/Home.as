@@ -15,7 +15,11 @@ import flash.display.Bitmap;
 import flash.display.Loader;
 import flash.events.Event;
 import flash.geom.Point;
+import flash.geom.Rectangle;
 import flash.net.URLRequest;
+
+import starling.core.RenderSupport;
+import starling.core.Starling;
 
 import starling.display.Image;
 import starling.display.Quad;
@@ -34,6 +38,8 @@ public class Home extends starling.display.Sprite {
     private var pageContainer:PageContainer;
     private var loadingContainer:Sprite;
     private var blackOverlay:Quad;
+    private var originalHeight:int;
+    private var originalWidth:int;
 
     public function Home() {
         trace("Home [CONSTRUCT]");
@@ -49,35 +55,56 @@ public class Home extends starling.display.Sprite {
         textfield.x = appModel.appWidth/2 - textfield.width/2;
         textfield.y = 100;
 
+        pageContainer = new PageContainer();
 
         backgroundLoader = new Loader();
         backgroundLoader.load(new URLRequest("assets/design/bg_pattern.png"));
         backgroundLoader.contentLoaderInfo.addEventListener(flash.events.Event.COMPLETE, backgroundLoadedHandler);
         this.addEventListener(BACKGROUNDLOADING_COMPLETE, backgroundLoadingCompleteHandler);
+
+        appModel.addEventListener(AppModel.SIZE_CHANGED, resizeHandler);
     }
 
 
     // METHODS
 
+    private function resizeHandler(e:starling.events.Event):void{
+        trace("[HOME] resizeHandler");
+        display();
+
+    }
+
     private function backgroundLoadedHandler(e:flash.events.Event):void{
         var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(backgroundLoader.content as Bitmap);
         texture.repeat = true;
         backgroundImage = new Image(texture);
-        var horizontal:Number = stage.stageWidth/backgroundImage.width;
-        var vertical:Number = stage.stageHeight/backgroundImage.height;
+        originalHeight = backgroundImage.height;
+        originalWidth = backgroundImage.width;
+
+        addChild(backgroundImage);
+
+        display();
+        dispatchEvent(new starling.events.Event(BACKGROUNDLOADING_COMPLETE));
+    }
+
+    private function display():void{
+        var horizontal:Number = appModel.appWidth/originalWidth;
+        var vertical:Number = appModel.appHeight/originalHeight;
         backgroundImage.setTexCoords(1,new Point(horizontal,0));
         backgroundImage.setTexCoords(2, new Point(0, vertical));
         backgroundImage.setTexCoords(3, new Point(horizontal,vertical));
-        backgroundImage.width *= horizontal;
-        backgroundImage.height *= vertical;
-        addChild(backgroundImage);
+        backgroundImage.width = originalWidth*horizontal;
+        backgroundImage.height = originalHeight*vertical;
 
-        dispatchEvent(new starling.events.Event(BACKGROUNDLOADING_COMPLETE));
+
+        // pagecontainer in het midden plaatsen
+        /*pageContainer.x = appModel.appWidth/2 - pageContainer.width/2;
+        pageContainer.y = appModel.appHeight/2 - pageContainer.height/2;*/
+
     }
 
     private function backgroundLoadingCompleteHandler(e:starling.events.Event):void{
         trace("[HOME] pagecontainer aanmaken");
-        pageContainer = new PageContainer();
 
         addChild(pageContainer);
         if(appModel.makeThumbs)
@@ -85,6 +112,8 @@ public class Home extends starling.display.Sprite {
             addChild(loadingContainer);
             appModel.addEventListener(AppModel.THUMBS_MADE, thumbsMadeHandler);
         }
+
+        display();
     }
 
     private function thumbsMadeHandler():void {
