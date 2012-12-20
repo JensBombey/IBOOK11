@@ -20,14 +20,14 @@ public class TitleTextElement extends Element{
 
         trace("[TitelTextElement]");
 
-        var titel:TextField = new TextField(864,38,titleTextVO.title,Style.FONT,38,0x656565);
+        var titel:TextField = new TextField(864,40,titleTextVO.title,Style.FONT,38,0x656565);
         titel.hAlign = HAlign.LEFT;
         addChild(titel);
 
         var subtitel:TextField = new TextField(864,16,titleTextVO.subtitle,Style.FONT,14,0xe16565);
         subtitel.hAlign = HAlign.LEFT;
         subtitel.italic = true;
-        subtitel.y = titel.height + 10;
+        subtitel.y = titel.y + subtitel.height*3;
         addChild(subtitel);
 
         var paragraafEen:TextField = new TextField(392,421,titleTextVO.paragraafEen,Style.FONT,14,0x656565);
@@ -46,7 +46,7 @@ public class TitleTextElement extends Element{
         info.hAlign = HAlign.RIGHT;
         info.vAlign = VAlign.TOP;
         info.x = paragraafTwee.x;
-        info.y = paragraafTwee.height + 20;
+        info.y = 460 + info.height;
         addChild(info);
     }
 }

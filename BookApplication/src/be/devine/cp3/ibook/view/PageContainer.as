@@ -51,14 +51,11 @@ public class PageContainer extends Sprite{
         menu.x = 29;
         menu.y = 0;
         menuAdded = true;
-
-
-
     }
     public override function render(support:RenderSupport, alpha:Number):void
      {
      support.finishQuadBatch();
-     Starling.context.setScissorRectangle(new Rectangle(30, 0, 964, 684));
+     Starling.context.setScissorRectangle(new Rectangle(30,0, 964, 684));
      super.render(support,alpha);
      support.finishQuadBatch();
      Starling.context.setScissorRectangle(null);
@@ -71,8 +68,10 @@ public class PageContainer extends Sprite{
         container.dispose();
 
         bg = new Quad(964,624,0xffffff);
-        bg.x = appmodel.appWidth/2 - bg.width/2;
-        bg.y = appmodel.appHeight/2 - bg.height/2;
+        /*bg.x = appmodel.appWidth/2 - bg.width/2;
+        bg.y = appmodel.appHeight/2 - bg.height/2;*/
+        bg.x = 30;
+        bg.y = 60;
         container.addChild(bg);
 
         pages = appmodel.pages;

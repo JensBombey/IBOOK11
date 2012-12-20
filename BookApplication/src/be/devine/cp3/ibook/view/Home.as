@@ -100,8 +100,12 @@ public class Home extends starling.display.Sprite {
 
 
         // pagecontainer in het midden plaatsen
-        /*pageContainer.x = appModel.appWidth/2 - pageContainer.width/2;
-        pageContainer.y = appModel.appHeight/2 - pageContainer.height/2;*/
+/*
+        pageContainer.x = appModel.appWidth/2 - pageContainer.width/2;
+*/
+/*
+        pageContainer.y = appModel.appHeight/2 - pageContainer.height/2;
+*/
 
 
 

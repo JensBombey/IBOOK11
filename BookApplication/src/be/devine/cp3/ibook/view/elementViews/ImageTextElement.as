@@ -28,7 +28,10 @@ public class ImageTextElement extends Element{
 
     private var imageLoader:Loader;
     private var titel:starling.text.TextField;
-    private var paragraafEen:TextField
+    private var paragraafEen:TextField;
+    private var infoBoven:starling.text.TextField;
+    private var infoOnder:TextField;
+    private var subtitel:starling.text.TextField
 
     public function ImageTextElement(imageTextVO:ImageTextVO) {
         super(imageTextVO);
@@ -49,6 +52,20 @@ public class ImageTextElement extends Element{
         paragraafEen = new TextField(392,421,imageTextVO.paragraafEen,Style.FONT,14,0x656565);
         paragraafEen.hAlign = HAlign.LEFT;
         paragraafEen.vAlign = VAlign.TOP;
+        infoBoven = new TextField(392,16,imageTextVO.infoBoven,Style.FONT,12,0x656565);
+        infoBoven.hAlign = HAlign.LEFT;
+        infoBoven.vAlign = VAlign.TOP;
+        addChild(infoBoven);
+
+        infoOnder = new TextField(392,16,imageTextVO.infoOnder,Style.FONT,12,0x656565);
+        infoOnder.hAlign = HAlign.RIGHT;
+        addChild(infoOnder);
+
+        subtitel = new TextField(864,16,imageTextVO.subtitel,Style.FONT,14,0xe16565);
+        subtitel.hAlign = HAlign.LEFT;
+        subtitel.italic = true;
+        subtitel.y = titel.height;
+
     }
 
     // METHODS
@@ -61,6 +78,17 @@ public class ImageTextElement extends Element{
         paragraafEen.y = image.y;
         addChild(paragraafEen);
         addChild(image);
+
+        infoBoven.x = paragraafEen.x;
+        infoBoven.y = infoBoven.height + 20;
+        trace("INFOBOVENJEJEJJEJE---------- " + infoBoven);
+        infoOnder.x = paragraafEen.x;
+        infoOnder.y = paragraafEen.height + infoOnder.height + 40;
+        addChild(infoOnder);
+
+        subtitel.x = image.x;
+        subtitel.y = titel.y + subtitel.height*3;
+        addChild(subtitel);
     }
 
 

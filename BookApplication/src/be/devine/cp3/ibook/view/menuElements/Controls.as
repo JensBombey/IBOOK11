@@ -25,8 +25,8 @@ public class Controls extends Sprite{
 
         fullscreenButton = new FullscreenButton();
         addChild(fullscreenButton);
-        fullscreenButton.x = 40;
-        fullscreenButton.y = 10;
+        fullscreenButton.x = 42;
+        fullscreenButton.y = 87;
         fullscreenButton.scaleX = scaleY = .5;
 
 

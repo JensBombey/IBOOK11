@@ -27,7 +27,6 @@ public class FullscreenButton extends Sprite {
 
         var texture:starling.textures.Texture = starling.textures.Texture.fromBitmap(new Fullscreen());
         fullscreenButton = new Image(texture);
-
         var texture2:starling.textures.Texture = starling.textures.Texture.fromBitmap(new FullscreenOff());
         fullscreenOffButton = new Image(texture2);
         this.addChild(fullscreenButton);

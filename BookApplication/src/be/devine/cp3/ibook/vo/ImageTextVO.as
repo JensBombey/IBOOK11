@@ -11,11 +11,17 @@ public class ImageTextVO extends ElementVO{
     public var titel:String;
     public var imagePath:String;
     public var paragraafEen:String;
+    public var infoBoven:String;
+    public var infoOnder:String;
+    public var subtitel:String;
 
     public function ImageTextVO(elementXML:XML) {
         titel = elementXML.title;
         imagePath = elementXML.photo;
         paragraafEen = elementXML.paragraph[0];
+        infoBoven = elementXML.infoBoven;
+        infoOnder = elementXML.infoOnder;
+        subtitel = elementXML.subTitle;
     }
 }
 }
