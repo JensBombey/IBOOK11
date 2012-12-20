@@ -10,12 +10,14 @@ public class TextVO extends ElementVO{
 
     public var paragraafEen:String;
     public var paragraafTwee:String;
-    public var titel:String;
+    public var infoBoven:String;
+    public var infoOnder:String;
 
     public function TextVO(elementXML:XML) {
         paragraafEen = elementXML.paragraph[0];
         paragraafTwee = elementXML.paragraph[1];
-        titel = elementXML.title;
+        infoBoven = elementXML.infoBoven;
+        infoOnder = elementXML.infoOnder;
     }
 }
 }

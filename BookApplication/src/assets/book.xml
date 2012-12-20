@@ -46,7 +46,7 @@ Wanneer de titelsong van The Reason wordt ingezet staat de tent op zijn kop en z
 
     <page number="5">
         <element type="text">
-            <title>-- vervolg pagina 4</title>
+            <infoBoven>-- vervolg pagina 4</infoBoven>
         <paragraph x="" y="" fontSize="" font="" color="">Vervolgens kan er blijkbaar nog even een hees piepstemmetje geproduceerd worden om Cindy Laupers 'Girl's Just Wanna Have Fun' te piepen. Leuk, maar redelijk onnodig.
 Het laatste nummer is ook de afsluiter van de CD, 'Disappear'. Wederom een prettige nummer op de plaat, maar niet uitermate geschikt om een concert mee af te sluiten. Doorgaans verwacht de menigte het concert af te kunnen sluiten door een lekker rocknummer waarop fijn gesprongen en gepogo'd kan worden. Dat zit er vanavond niet in. Voordat de bandleden het podium verlaten worden de setlists aan het publiek gegeven en de waterflesjes en de handdoeken uitgedeeld. Sympathiek. Maar de vraag blijft; had Douglas Robb een mindere dag doordat hij zich niet optimaal voelde, of is Hoobastank gewoon niet van het kaliber Incubus? Ze zullen het bewijs moeten leveren, de eerstvolgende keer dat ze naar Nederland terugkeren. En tot die tijd moeten we maar gewoon blijven luisteren naar The Reason, want dat is toch wel een behoorlijk puike plaat.
         </paragraph>
@@ -119,16 +119,50 @@ De toekomst zal moeten uitwijzen of Rise Against goed genoeg is om het ook te re
     </page>
 
     <page number="11">
-        <element type="text">
-            <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+        <element type="titleText">
+            <title>
+                FROM AUTUMN TO ASHES IS BETER DAN OOIT
+            </title>
+            <subTitle>
+                Er zijn weinig bands die bestaan uit zo veel extremen als From Autumn To Ashes.
+            </subTitle>
+            <paragraph x="" y="" fontSize="" font="" color="">Een gesprek dat aanvankelijk wat moeizaam op gang komt. Dat terwijl er toch niet gek veel reden tot vertwijfeling is, bij DeNeeve. Abandon Your Friends, het gloednieuwe album van het uit Long Island afkomstige kwintet, kon bijna overal rekenen op bijzonder lovende reacties. Iets dat de groep wel kon gebruiken, na het toch lichtelijk tegenvallende The Fiction We Live. Eerder al had From Autumn To Ashes namelijk indruk gemaakt met Too Bad You’re Beautiful en diens opvolger leek, enkele toppers daargelaten, eerder een slap aftreksel te zijn. Met Abandon Your Friends slaat de groep dan ook dubbel zo hard terug; middels songs als het fantastisch opgebouwde ‘Sugar Wolf’ en het bijna net zo indrukwekkende ‘Placentapede’ weet From Autumn To Ashes een meer dan uitstekende balans te vinden tussen hard en zacht, grunts en cleane zanglijnen, heavy metalriffs en aansprekende melodielijnen en fragiel of juist barstensvol zelfvertrouwen.
+
+Aan de plaat zelf hoor je niet af dat frontman Benjamin Perri kampte met een writer’s block tijdens het proces dat leidde tot het nieuwe schijfje. Drummer Francis Mark – die de cleane zanglijnen voor zijn rekening neemt – nam dan ook het voortouw in het schrijven van de teksten voor Abandon Your Friends. DeNeeve: “Ben had een moeilijke periode tijdens het schrijven van deze plaat. </paragraph>
+            <paragraph>Hij is echter al heel lang een heel goede vriend van ons en Francis kent hem dus goed. Wat Ben wilde zeggen, heeft Francis daarom in woorden gegoten. Dat werkte prima.” Opvallend daarbij zijn overigens nog steeds de typische songtitels, die variëren van ‘Placentapede’ tot ‘Vicious Cockfight’. DeNeeve: “Tja, we zijn nu eenmaal niet zo serieus als men denkt. Oké, we zijn serieus op het vlak van teksten en muziek, maar songtitels zijn bij ons bijna altijd grappig. We zijn maar een club ‘fuck-ups’ en de songtitels zijn wat dat betreft een goede afspiegeling van wie we echt zijn en hoe we naar bepaalde dingen kijken. Wat heeft immers de titel van een song precies voor betekenis? Niets toch!”
+
+Gitarist Scott Gross en bassist Mike Pilato verlieten in de periode tussen dit album en diens voorganger de groep en maakten daarmee plaats voor respectievelijk Jonathan Cox en Josh Newton, die geen onbekenden voor de band zijn. DeNeeve, die al snel claimt dat het in het leven van From Autumn To Ashes draait om het drinken van alcohol en het fucked up raken: “Met Josh ben ik bijvoorbeeld al jaren bevriend. Ik ken hem van zijn vorige band Reggie and the Full Effect, waar we mee toerden. We wisten dus wat voor vlees we in de kuip haalden.</paragraph>
+            <info>-- lees verder op pagina 12
+            </info>
         </element>
     </page>
 
     <page number="12">
-        <element type="text">
-            <paragraph x="" y="" fontSize="" font="" color="">Lorum Ipsum blablabla</paragraph>
+        <element type="imageText">
+            <infoBoven>-- vervolg pagina 11</infoBoven>
+            <photo>assets/book/fata.jpg</photo>
+            <paragraph x="" y="" fontSize="" font="" color="">Beide heren zijn zoals wijzelf zijn en dat matcht goed.” “Wat er mis ging met Scott en Mike? Scott hield zich bezig met allerlei soorten drugs. Niet dat dat mij iets uitmaakt, maar als het een negatieve invloed heeft op je spel, is dat niet goed. Hij probeert nu alles weer op een rijtje te krijgen. Mike trok het simpelweg niet meer. Je moet een bepaald type persoon zijn om zo lang en vaak op toer en van huis weg te zijn. Hij wilde liever een normaal leven met zijn vriendin. Dat is natuurlijk prima.” Dus heeft het rock ’n roll-leven zijn tol geëist van Scott? Een volmondig ‘ja’ volgt van DeNeeve, waarna hij vervolgt: “maar ik denk dat deze levensstijl zijn tol geëist heeft van beiden. Voor beiden echter op een heel andere manier.”
+De bezettingswisselingen hebben in ieder geval nauwelijks invloed op de sound van de groep gehad. “Ik denk inderdaad dat het nog steeds écht als een album van From Autumn To Ashes klinkt”, licht DeNeeve toe, “hoewel ik wel denk dat dit schijfje beter is dan het oude werk. De nummers zijn meer echte nummers, in plaats van dat het klinkt alsof we verschillende stukken achter elkaar geplakt hebben. De structuren hebben meer weg van die van popsongs. We hebben ons daarnaast meer gefocust op melodieën. Het klinkt beter dan alles wat we ooit tevoren hebben gedaan.”
+            </paragraph>
+            <infoOnder>-- lees verder op pagina 13</infoOnder>
         </element>
     </page>
+    <page number="13">
+        <element type="text">
+            <infoBoven>-- vervolg pagina 12</infoBoven>
+            <paragraph>Wel vormden de bezettingswisselingen de basis voor een compleet nieuwe manier van schrijven. Waar het voorheen met name Mark was die zich samen met Gross over de songs boog, was het nu veel meer een groepsinspanning. “Kijk, we werkten altijd al goed samen”, legt DeNeeve uit. “Francis kwam met een basisidee en dan kwam de rest daarbij en voegde zijn ding er aan toe. Een proces dat in principe bestaat uit lagen; telkens komt er een nieuwe laag bij. Nu schreven we allemaal tegelijkertijd en dat is het grootste verschil met vorig werk. Iedereen nam direct actief deel aan het schrijfproces.”
 
-
+Het heeft het vijftal duidelijk goed gedaan, want From Autumn To Ashes klinkt weer fris in het genre. Een genre dat steeds dichter en dichter bevolkt raakte met allerlei groepen waarvan het gros afgeschreven kon worden als middelmatig. From Autumn To Ashes weet zich prima staande te houden, wat mede komt door een mentaliteit van hard werken. De band is dan ook bijna continu op toer, wat de inspiratie vormde voor de titel van het album. Een titel die we zeker niet als een vorm van gebiedende wijs op moeten vatten, haast DeNeeve zich te zeggen. “Het is zeker niet bedoeld als een bevel aan anderen dat ze hun vrienden moeten verlaten. We kijken met die titel eigenlijk terug op de laatste vijf jaar van ons leven.</paragraph>
+            <paragraph>Hoe het is om in een band te zitten die zoveel toert als wij, en wat voor gevolgen dat heeft voor relaties thuis met vrienden, familie en mensen in het algemeen. Je komt thuis na een toer en je verwacht dat alles zo was als toen je wegging, maar je dient je te realiseren dat de wereld gewoon blijft draaien als je van huis bent en dat je dus niet kunt verwachten dat alles nog is zoals toen je wegging. De titel is dan ook meer een statement; we dragen mensen niet op om hun maten te verlaten.”
+Zelf heeft hij het in het begin moeilijk gehad om de mensen van wie hij houdt achter zich te laten. De Neeve: “Nu niet meer, want ik weet er beter mee om te gaan. Je mist de mensen thuis natuurlijk wel, maar we zijn nu vijf jaar verder dan toen we deze band begonnen en dan leer je er mee omgaan. Ook de mensen die je achterlaat – zoals mijn vriendin - raken er aan gewend. Dit is wat ik doe, dit is mijn werk, dit is wat van me verwacht wordt. Dat heb ik me inmiddels gerealiseerd. Voor de mensen thuis geldt hetzelfde. Men verwacht niet anders meer.”</paragraph>
+            <infoOnder>-- lees verder op pagina 14</infoOnder>
+        </element>
+    </page>
+    <page number="14">
+        <element type="imageText">
+            <infoBoven>-- vervolg pagina 13</infoBoven>
+            <photo>assets/book/fata2.jpg</photo>
+            <paragraph>Terwijl hij in het begin van het gesprek voorzichtigerwijs roept dat het in de band allemaal draait om het trappen van lol, heeft ook DeNeeve dus een serieuzere kant. Het vijftal weet door ervaringen uit het verleden precies in te schatten wanneer het zijn serieuze kant moet laten zien. Aan zelfkennis dan ook geen gebrek toen de groep aan het schrijven van Abandon Your Friends begon. DeNeeve: “We moeten echt weg van onze huiselijke omgeving als we aan een plaat gaan beginnen, anders raken we veel te snel afgeleid. We hebben dat nooit eerder gedaan, maar nu zaten we dus maandenlang in de sneeuw in een vreemd huis. Voor ons werkt dat beter, want anders roept er iemand: ‘laten we even pauze houden en naar een bar gaan’. Die pauze duurt dan vervolgens drie dagen, waarin dus niets gedaan wordt voor het album. We kozen er daarom bewust voor om de plaat te schrijven in een oud en groot huis dat in de bergen, in the middle of nowhere, van de staat New York staat. Het was een spookhuis, zoals het hotel in The Shining. Ben zag er op een gegeven moment wat geesten of zo en we hadden er niet veel langer moeten blijven.”            </paragraph>
+        </element>
+    </page>
 </book>

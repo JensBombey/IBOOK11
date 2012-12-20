@@ -17,21 +17,35 @@ public class TextElement extends Element{
     public function TextElement(textVO:TextVO) {
         super(textVO);
 
-        var titel:TextField = new TextField(864,38,textVO.titel,Style.FONT,12,0x656565);
-        titel.hAlign = HAlign.LEFT;
-        addChild(titel);
+
+        var infoBoven:TextField = new TextField(392,16,textVO.infoBoven,Style.FONT,12,0x656565);
+        infoBoven.hAlign = HAlign.LEFT;
+        infoBoven.vAlign = VAlign.TOP;
+        infoBoven.y = infoBoven.height + 20;
+        addChild(infoBoven);
+
+        var infoOnder:TextField = new TextField(392,16,textVO.infoOnder,Style.FONT,12,0x656565);
+        infoOnder.hAlign = HAlign.RIGHT;
+        infoOnder.vAlign = VAlign.TOP;
+        addChild(infoOnder);
 
         var paragraafEen:TextField = new TextField(392,421,textVO.paragraafEen,Style.FONT,14,0x656565);
         paragraafEen.hAlign = HAlign.LEFT;
         paragraafEen.vAlign = VAlign.TOP;
-        paragraafEen.y = titel.y + 40;
+        paragraafEen.y = infoBoven.y + 40;
         addChild(paragraafEen);
+
+        infoBoven.x = paragraafEen.x;
+
         var paragraafTwee:TextField = new TextField(392,421,textVO.paragraafTwee,Style.FONT,14,0x656565);
         paragraafTwee.hAlign = HAlign.LEFT;
         paragraafTwee.vAlign = VAlign.TOP;
         paragraafTwee.x = paragraafEen.width + 40;
         paragraafTwee.y = paragraafEen.y;
         addChild(paragraafTwee);
+
+        infoOnder.x = paragraafTwee.x;
+        infoOnder.y = paragraafTwee.height + infoOnder.height + 40;
     }
 }
 }
